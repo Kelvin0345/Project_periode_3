@@ -5,7 +5,9 @@ include ('config/config.php');
 $dsn = "mysql:host=$dbHost;
         dbname=$dbName;
         charset=UTF8";
-
+/**
+ * Nieuwe pdo maken
+ */
 $pdo = new PDO($dsn, $dbUser,$dbPass);
 
 //tabel
