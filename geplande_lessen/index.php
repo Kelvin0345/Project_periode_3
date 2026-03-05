@@ -1,14 +1,14 @@
 <?php
 
 include ('config/config.php');
-
+//host
 $dsn = "mysql:host=$dbHost;
         dbname=$dbName;
         charset=UTF8";
 
 $pdo = new PDO($dsn, $dbUser,$dbPass);
 
-
+//tabel
 $sql = "SELECT GLN.Id
               ,GLN.Naam
               ,GLN.Prijs
