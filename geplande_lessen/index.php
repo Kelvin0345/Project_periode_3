@@ -1,5 +1,6 @@
 <?php
 
+
 include ('config/config.php');
 //host
 $dsn = "mysql:host=$dbHost;
