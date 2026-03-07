@@ -28,10 +28,10 @@ $sql = 'SELECT MDW.Id
 
                //var_dump($result);
 ?>
-
+<!--hier start de html -->
 <!doctype html>
 <html lang="en">
-  <head>
+  <head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project 3</title>
@@ -39,9 +39,10 @@ $sql = 'SELECT MDW.Id
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="cointainer mt-3">
+    <div class="cointainer mt-3">        <!--hier start de container voor de tabel -->
       <div class="row justify-content-center">
         <div class="col-8">
+                 <!--hier is de titel van de tabel -->
           <h3>Medewerkers Overzicht</h3>
         </div>
       </div>
@@ -58,6 +59,7 @@ $sql = 'SELECT MDW.Id
             <th>Achternaam</th>
             <th>Nummer</th>
             <th>Medewerkersoort</th>
+     <!--   <th>Unhappy scenario</th> -->
           </thead>
           <tbody>
             <?php foreach ($result as $medewerker):?>
@@ -68,6 +70,7 @@ $sql = 'SELECT MDW.Id
               <td><?= $medewerker->Achternaam; ?></td>
               <td><?= $medewerker->Nummer; ?></td>
               <td><?= $medewerker->Medewerkersoort; ?></td>
+            <!-- <td>< #?= $unhappyscenario->Unhappy; ?></td> -->
             </tr>
             <?php endforeach; ?>
           </tbody>
@@ -78,7 +81,7 @@ $sql = 'SELECT MDW.Id
 
 
 
-
+       <!--hieronder is de script voor bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
