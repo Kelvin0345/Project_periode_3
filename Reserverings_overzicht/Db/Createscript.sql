@@ -69,10 +69,10 @@ VALUES
 	('Jan', '', 'Jansen', 101, '2026-03-01', '09:00', 'Bevestigd')
    ,('Marie', '', 'Klaassen', 102, '2026-03-01', '10:30', 'Bevestigd')
    ,('Peter', 'van', 'Dijk', 103, '2026-03-01', '12:00', 'Geannuleerd')
-   ,('Sanne', '', 'de Vries', 104, '2026-03-02', '09:00', 'Bevestigd')
-   ,('Tom', '', 'Bakker', 105, '2026-03-02', '10:30', 'Bevestigd')
+   ,('Sanne', 'de', 'Vries', 104, '2026-03-02', '09:00', 'Bevestigd')
+   ,('Tom', '', 'Bakker', 105, '2026-03-02', '10:30', 'Geannuleerd')
    ,('Linda', '', 'Smits', 106, '2026-03-02', '12:00', 'Bevestigd')
-   ,('Kees', '', 'Janssen', 107, '2026-03-03', '09:00', 'Bevestigd');
+   ,('Kees', '', 'Janssen', 107, '2026-03-03', '09:00', 'Bezet');
 
 
 
