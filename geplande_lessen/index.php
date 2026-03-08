@@ -1,12 +1,16 @@
 <?php
 
+// config toevoegeb
 
 include ('config/config.php');
-//host
+
+// dsn host gebruiken
+
 $dsn = "mysql:host=$dbHost;
         dbname=$dbName;
         charset=UTF8";
-/**
+
+ /**
  * Nieuwe pdo maken
  */
 $pdo = new PDO($dsn, $dbUser,$dbPass);
@@ -31,7 +35,7 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 
 
-//Array
+//resultaten zien
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
@@ -55,6 +59,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="./css/Style.css">
 </head>
 <body>
+    
+    <!-- Container geplande lessen tekst -->
+
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -62,6 +69,8 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
     </div>
+
+    <!-- Tabel met gegevens die je allemaal ziet -->
 
     <div class="row justify-content-center">
         <div class="col-10">
@@ -91,6 +100,10 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             </table>
         </div>
     </div>
+
+    <!-- unhappy scenario -->
+    
+    <!-- <h1>Geen geplande lessen</h1> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 

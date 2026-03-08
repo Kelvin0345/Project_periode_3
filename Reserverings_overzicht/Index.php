@@ -6,9 +6,10 @@ $dsn = "mysql:host=$dbHost;
         dbname=$dbName;
         charset=UTF8";
 
+//nieuw pdo maken
 $pdo = new PDO($dsn, $dbUser,$dbPass);
 
-
+//sql select table
 $sql = "SELECT RS.Id
               ,RS.Voornaam
               ,RS.Tussenvoegsel
@@ -20,7 +21,7 @@ $sql = "SELECT RS.Id
         FROM Reservering AS RS
         ORDER BY RS.ID DESC";
 
-
+//Prepareren
 $statement = $pdo->prepare($sql);
 
 //uitvoeren
@@ -28,11 +29,10 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 
 
-//Array
+//Tabel te zien
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
-//data selecteren
 
 //var_dump($result);
 
@@ -52,6 +52,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="./css/Style.css">
 </head>
 <body>
+    
+    <!-- Reservering overzicht container -->
+
     <div class="container mt-3">
         <div class="row justify content-center">
             <div class="col-8">
@@ -59,6 +62,8 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
     </div>
+
+    <!-- Container tabel -->
 
     <div class="row justify-content-center">
         <div class="col-10">
@@ -88,6 +93,10 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             </table>
         </div>
     </div>
+
+    <!-- Unhappy scenario -->
+    <!-- <h1>Geen Reserveringen</h1> -->
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
