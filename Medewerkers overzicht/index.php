@@ -59,7 +59,7 @@ $sql = 'SELECT MDW.Id
             <th>Achternaam</th>
             <th>Nummer</th>
             <th>Medewerkersoort</th>
-     <!--   <th>Unhappy scenario</th> -->
+    <!--        <th>Undefined</th>    -->
           </thead>
           <tbody>
             <?php foreach ($result as $medewerker):?>
@@ -70,15 +70,13 @@ $sql = 'SELECT MDW.Id
               <td><?= $medewerker->Achternaam; ?></td>
               <td><?= $medewerker->Nummer; ?></td>
               <td><?= $medewerker->Medewerkersoort; ?></td>
-            <!-- <td>< #?= $unhappyscenario->Unhappy; ?></td> -->
+          <!--    <td><?= $unhappyscenario->Unhappy; ?></td> -->
             </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
       </div>
     </div>
-
-
 
 
        <!--hieronder is de script voor bootstrap -->
