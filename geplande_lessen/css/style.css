@@ -1,0 +1,27 @@
+/* Mobiel */
+@media (max-width: 768px) {
+
+    h3{
+        text-align: center;
+        font-size: 22px;
+    }
+
+    table{
+        font-size: 14px;
+    }
+
+    th, td{
+        padding: 6px;
+        white-space: nowrap;
+    }
+
+}
+
+/* Extra kleine schermen */
+@media (max-width: 480px){
+
+    table{
+        font-size: 12px;
+    }
+
+}
