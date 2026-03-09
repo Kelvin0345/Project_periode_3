@@ -74,7 +74,8 @@ if(isset($_GET['edit'])){
 </table>
 
 <br>
-
+// dit is de knop om een nieuw account toe te voegen,
+// deze linkt naar create.php waar het formulier staat om een nieuw account aan te maken.
 <?php if($error): ?>
 
 <div style="background:#fee2e2; color:#b91c1c; padding:20px; border-radius:10px; border:1px solid #fca5a5;">
@@ -133,6 +134,7 @@ echo $active;
 </table>
 
 <br>
+// dit is de knop om een nieuw account toe te voegen,
 
 <table width="100%" border="1" bordercolor="#dbeafe" cellspacing="0" cellpadding="10" bgcolor="white">
 
