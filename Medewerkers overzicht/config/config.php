@@ -7,7 +7,7 @@
 $dbHost = 'localhost';
 
 //De naam van de database:
-$dbName = 'Project3';
+$dbName = 'FitForFun';
 
 //Naam van de gebruiker die de queries gaat uitvoeren
 $dbUser = 'root';
