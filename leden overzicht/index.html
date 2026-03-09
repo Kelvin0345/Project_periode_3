@@ -15,12 +15,17 @@
 <p>Overzicht van alle leden</p>
 </header>
 
+<input type="text" placeholder="Zoek op naam, email of stad..." class="search">
+
 <table>
 
 <thead>
 <tr>
 <th>Naam</th>
 <th>Leeftijd</th>
+<th>Contact</th>
+<th>Adres</th>
+<th>Lid sinds</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -30,25 +35,46 @@
 <tr onclick="showMember(1)">
 <td>Jan van der Berg</td>
 <td>35 jaar</td>
+<td>
+jan.vanderberg@email.nl<br>
+0612345678
+</td>
+<td>
+Hoofdstraat 12<br>
+1012AB Amsterdam
+</td>
+<td>15-01-2024</td>
 <td class="active">Actief</td>
 </tr>
 
 <tr onclick="showMember(2)">
 <td>Emma Jansen</td>
 <td>30 jaar</td>
+<td>
+emma.jansen@email.nl<br>
+0623456789
+</td>
+<td>
+Dorpsweg 45<br>
+3011CD Rotterdam
+</td>
+<td>03-02-2024</td>
 <td class="active">Actief</td>
 </tr>
 
 <tr onclick="showMember(3)">
 <td>Pieter de Vries</td>
 <td>37 jaar</td>
+<td>
+pieter.devries@email.nl<br>
+0634567890
+</td>
+<td>
+Stationslaan 3<br>
+3511EF Utrecht
+</td>
+<td>22-11-2023</td>
 <td class="inactive">Inactief</td>
-</tr>
-
-<tr onclick="showMember(4)">
-<td>Sophie Bakker</td>
-<td>33 jaar</td>
-<td class="active">Actief</td>
 </tr>
 
 </tbody>
@@ -57,13 +83,13 @@
 
 </div>
 
-<!-- Popup met alle gegevens -->
+<!-- Popup -->
 <div id="memberPopup" class="popup">
 <div class="popup-content">
 
 <span class="close" onclick="closePopup()">X</span>
 
-<h2>Lid gegevens</h2>
+<h2>Lid informatie</h2>
 
 <div id="memberInfo"></div>
 
