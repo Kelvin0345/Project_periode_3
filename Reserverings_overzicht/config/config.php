@@ -2,6 +2,7 @@
    
 
 
+
    
 // De naam van onze mysql-server:
 $dbHost = 'localhost';
