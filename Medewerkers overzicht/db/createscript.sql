@@ -9,13 +9,13 @@
 -- *************************************************************
 
 -- Verwijder database Rollercoaster_2509b
-DROP DATABASE IF EXISTS FitForFun;
+DROP DATABASE IF EXISTS Project3;
 
 -- Maak de database Rollercoaster_2509b
-CREATE DATABASE FitForFun;
+CREATE DATABASE Project3;
 
 -- Gebruik de database Rollercoaster_2509b
-USE FitForFun;
+USE Project3;
 
 -- Step : 02
 -- *************************************************************
