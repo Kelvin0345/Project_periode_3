@@ -1,0 +1,630 @@
+/* ===========================
+   RESET & BASIS
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.nav-logo span {
+    color: #043878;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #043878;
+}
+
+.nav-auth {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.btn-registreer {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-registreer:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-login {
+    text-decoration: none;
+    background-color: #043878;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #02244d;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background-image: url('/gym.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    max-width: 750px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero-label {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    line-height: 0.95;
+    color: #ffffff;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+}
+
+.hero-title span {
+    color: #043878;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #bbbbbb;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 420px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    background-color: #043878;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #02244d;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    text-decoration: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+}
+
+/* Statistieken balk onderaan hero */
+.hero-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat {
+    flex: 1;
+    max-width: 220px;
+    text-align: center;
+    padding: 28px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+/* ===========================
+   SOCIAL FLOAT KNOPPEN
+=========================== */
+.social-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 99;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.social-btn img {
+    display: block;
+    object-fit: contain;
+}
+
+/* per icoon apart finetunen */
+.x-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+.fb-btn img {
+    width: 70px;
+    height: 70px;
+}
+
+.ig-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 50px 80px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.footer-logo span {
+    color: #043878;
+}
+
+.footer p {
+    font-size: 13px;
+    color: #666666;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #888888;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #043878;
+}
+
+/* ===========================
+   ANIMATIE
+=========================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   LESSEN PAGINA – PAGE HEADER
+=========================== */
+.page-header {
+    position: relative;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600');
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.88) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.page-header-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.page-header-title span {
+    color: #043878;
+}
+
+.page-header-sub {
+    font-size: 17px;
+    color: #aaaaaa;
+    font-weight: 300;
+}
+
+/* ===========================
+   FILTER KNOPPEN
+=========================== */
+.filter-sectie {
+    background-color: #111111;
+    padding: 30px 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.filter-knoppen {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #aaaaaa;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    border-color: #043878;
+    color: #ffffff;
+}
+
+/* Actieve filter knop */
+.filter-btn.actief {
+    background-color: #043878;
+    border-color: #043878;
+    color: #ffffff;
+}
+
+/* ===========================
+   LESSEN GRID (grote kaarten)
+=========================== */
+.lessen-pagina {
+    background-color: #0d0d0d;
+    padding: 60px 80px 100px;
+}
+
+.lessen-grid-groot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.les-card-groot {
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.les-card-groot:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Gekleurde bovenkant van de kaart */
+.les-card-top {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kracht-bg  { background: linear-gradient(135deg, #01193a, #043878); }
+.hiit-bg    { background: linear-gradient(135deg, #7f0000, #ff4500); }
+.yoga-bg    { background: linear-gradient(135deg, #1a3a2a, #2ecc71); }
+.boksen-bg  { background: linear-gradient(135deg, #1a1a1a, #555555); }
+.spin-bg    { background: linear-gradient(135deg, #021a36, #1e90ff); }
+.pilates-bg { background: linear-gradient(135deg, #2a1a2e, #9b59b6); }
+
+.les-emoji {
+    font-size: 52px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Badge rechtsboven op de kaart */
+.les-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* Tekst gedeelte van de kaart */
+.les-card-body {
+    padding: 28px;
+}
+
+.les-card-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.les-card-body p {
+    font-size: 14px;
+    color: #999999;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Details lijst (tijd, dag, personen) */
+.les-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.les-details li {
+    font-size: 13px;
+    color: #bbbbbb;
+}
+
+/* ===========================
+   RESPONSIVE (eenvoudig)
+=========================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 24px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 0 24px;
+    }
+
+    .hero-title {
+        font-size: 60px;
+    }
+
+    .hero-stats {
+        gap: 0;
+    }
+
+    .stat {
+        padding: 20px 12px;
+    }
+
+    .footer {
+        padding: 40px 24px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ===========================
+   RESPONSIVE – LESSEN PAGINA
+=========================== */
+@media (max-width: 900px) {
+    .lessen-grid-groot {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lessen-pagina {
+        padding: 40px 24px 60px;
+    }
+
+    .filter-sectie {
+        padding: 24px;
+    }
+
+    .page-header-content {
+        padding: 0 24px;
+    }
+
+    .page-header-title {
+        font-size: 54px;
+    }
+}
+
+@media (max-width: 600px) {
+    .lessen-grid-groot {
+        grid-template-columns: 1fr;
+    }
+}
