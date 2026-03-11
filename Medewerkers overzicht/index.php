@@ -65,6 +65,10 @@ $sql = 'SELECT MDW.Id
             <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
         </div>
 
+        <div class="row justify-content-center my-3">
+            <div class="col-10"><h6>Nieuwe Medewerker <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></h6></div>
+        </div>
+
         <!-- Tabel -->
         <div class="tabel-wrapper">
             <table class="table table-striped table-hover medewerkers-tabel">
