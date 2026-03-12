@@ -70,16 +70,18 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
     <!-- Reservering overzicht container -->
 
-    <div class="container mt-3">
-        <div class="row justify content-center">
-            <div class="col-8">
-                <h3>Reservering overzicht</h3>
-            </div>
-        </div>
+   
+
+   
+    <!-- Paginatitel -->
+    <div class="medewerkers-header">
+        <p class="hero-label">Personeel</p>
+        <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
     </div>
 
-    <!-- Container tabel -->
 
+
+    <!-- Container tabel -->
     <div class="row justify-content-center">
         <div class="col-10">
             <table class="table table-striped table-hover">
