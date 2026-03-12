@@ -20,13 +20,11 @@ $sql = 'SELECT MDW.Id
                ,MDW.Nummer DESC
                ,MDW.Medewerkersoort DESC';
 
-               $statement = $pdo->prepare($sql);
- 
-               $statement->execute();
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$result = $statement->fetchAll(PDO::FETCH_OBJ);
 
-               $result = $statement->fetchAll(PDO::FETCH_OBJ);
-
-               //var_dump($result);
+//var_dump($result);
 ?>
 <!--hier start de html -->
 <!doctype html>
@@ -34,13 +32,13 @@ $sql = 'SELECT MDW.Id
 <head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 3</title>
+    <title>Project 3</title> <!--de titel van de browser tab -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/MedewerkersOverzicht.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-  <body>
+<body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -60,14 +58,16 @@ $sql = 'SELECT MDW.Id
     <!-- PAGINA INHOUD -->
     <div class="medewerkers-pagina">
 
-        <!-- Paginatitel -->
+        <!-- Titel + knop naast elkaar -->
         <div class="medewerkers-header">
-            <p class="hero-label">Personeel</p>
-            <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
-        </div>
-
-        <div class="row  justify-content-center my-3">
-            <div class="col-10"><h6>Nieuwe Medewerker <a href="create.php"><i class="bi bi-plus-square text-danger"></i></a></h6></div>
+            <div>
+                <p class="hero-label">Personeel</p>
+                <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
+            </div>
+            <!-- Knop naar create pagina -->
+            <a href="create.php" class="btn-nieuwe-mdw">
+                <i class="bi bi-person-plus-fill"></i> Nieuwe Medewerker
+            </a>
         </div>
 
         <!-- Tabel -->
@@ -106,19 +106,17 @@ $sql = 'SELECT MDW.Id
     </div>
 
     <!-- SOCIAL MEDIA KNOPPEN -->
-<div class="social-float">
-    <a href="#" class="social-btn x-btn">
-        <img src="../img/x.png" alt="X">
-    </a>
-
-    <a href="#" class="social-btn fb-btn">
-        <img src="../img/fb.png" alt="Facebook">
-    </a>
-
-    <a href="#" class="social-btn ig-btn">
-        <img src="../img/iglogo.png" alt="Instagram">
-    </a>
-</div>
+    <div class="social-float">
+        <a href="#" class="social-btn x-btn">
+            <img src="../img/x.png" alt="X">
+        </a>
+        <a href="#" class="social-btn fb-btn">
+            <img src="../img/fb.png" alt="Facebook">
+        </a>
+        <a href="#" class="social-btn ig-btn">
+            <img src="../img/iglogo.png" alt="Instagram">
+        </a>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer" id="contact">
@@ -135,5 +133,5 @@ $sql = 'SELECT MDW.Id
 
     <!--hieronder is de script voor bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
