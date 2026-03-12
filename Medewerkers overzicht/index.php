@@ -31,14 +31,15 @@ $sql = 'SELECT MDW.Id
 <!--hier start de html -->
 <!doctype html>
 <html lang="en">
-  <head> 
+<head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 3</title> <!--de titel van de browser tab -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Project 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/MedewerkersOverzicht.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
-  </head>
+</head>
   <body>
 
     <!-- NAVBAR -->
@@ -65,8 +66,8 @@ $sql = 'SELECT MDW.Id
             <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
         </div>
 
-        <div class="row justify-content-center my-3">
-            <div class="col-10"><h6>Nieuwe Medewerker <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></h6></div>
+        <div class="row  justify-content-center my-3">
+            <div class="col-10"><h6>Nieuwe Medewerker <a href="create.php"><i class="bi bi-plus-square text-danger"></i></a></h6></div>
         </div>
 
         <!-- Tabel -->

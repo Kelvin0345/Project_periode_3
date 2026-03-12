@@ -54,7 +54,6 @@ CREATE TABLE Medewerkers
 -- *******************************************************
 
 -- Vul de tabel
-
 INSERT INTO Medewerkers
 (
      Voornaam
