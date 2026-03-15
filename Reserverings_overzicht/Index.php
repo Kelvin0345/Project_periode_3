@@ -54,19 +54,21 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 <body class="Reservering">
     
     <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-logo">FitFor<span>FUN</span></div>
-        <ul class="nav-links">
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/Lessen.html">Lessen</a></li>
-            <li><a href="#vacatures">Vacaturen</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="#" class="btn-login">Login</a>
-        </div>
-    </nav>
+    <Header>
+        <nav class="navbar">
+            <div class="nav-logo">FitFor<span>FUN</span></div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/Lessen.html">Lessen</a></li>
+                <li><a href="#vacatures">Vacaturen</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-auth">
+                <a href="#" class="btn-registreer">Registreren</a>
+                <a href="#" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </Header>
 
     <!-- Reservering overzicht container -->
 
