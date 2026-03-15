@@ -75,10 +75,12 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
    
 
    
+    
     <!-- Paginatitel -->
-    <div class="medewerkers-header">
-        <p class="hero-label">Personeel</p>
-        <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
+    <div class="medewerkers-header text-center">
+        <p class="hero-label">FitForFun</p>
+        <h1 class="medewerkers-titel">Reservering <span>Overzicht</span></h1>
+        <p class="medewerkers-subtitle">Bekijk hier alle reserveringen</p>
     </div>
 
 
