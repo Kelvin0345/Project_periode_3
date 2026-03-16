@@ -115,8 +115,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
-    <!-- Unhappy scenario -->
-    <!-- <h1>Geen Reserveringen</h1> -->
+    
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
