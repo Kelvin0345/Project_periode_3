@@ -111,14 +111,14 @@ if (isset($_POST['submit'])) {
                     </div>
                     
                     <div class="mb-3">
-                        <label for="inputTopsnelheid" class="form-label">Topsnelheid:</label>
-                        <input name="Topsnelheid" placeholder="Vul de topsnelheid in" type="text" class="form-control" id="inputTopsnelheid"
-                               value="<?= $_POST['Topsnelheid'] ?? '' ?>">
+                        <label for="inputNummer" class="form-label">Nummer:</label>
+                        <input name="Nummer" placeholder="Vul nummer in in" type="Number" class="form-control" id="inputNummer"
+                               value="<?= $_POST['Number'] ?? '' ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputHoogte" class="form-label">Hoogte:</label>
-                        <input name="Hoogte" placeholder="Vul de hoogte in" type="text" class="form-control" id="inputHoogte"
+                        <label for="inputDatum" class="form-label">Datum:</label>
+                        <input name="Hoogte" placeholder="Vul de hoogte in" type="Date" class="form-control" id="inputHoogte"
                                value="<?= $_POST['Hoogte'] ?? '' ?>">
                     </div>
 
