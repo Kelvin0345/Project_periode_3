@@ -141,8 +141,13 @@ if (isset($_POST['submit'])) {
                     <!-- reservering status -->
                     <div class="mb-3">
                         <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
-                        <input name="Reserveringstatus" placeholder="Vul de reserveringstatus in" type="Text" class="form-control" id="inputReserveringstatus"
-                               value="<?= $_POST['Tijd'] ?? '' ?>">
+                        <select name="Reserveringstatus" class="form-control" id="inputReserveringstatus">
+                            <option value="">Kies een status</option>
+                            <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
+                            <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
+                            <option value="Gereserveerd" <?= ($_POST['Reserveringstatus'] ?? '') == 'Gereserveerd' ? 'selected' : '' ?>>Gereserveerd</option>
+                            <option value="Geannuleerd" <?= ($_POST['Reserveringstatus'] ?? '') == 'Geannuleerd' ? 'selected' : '' ?>>Geannuleerd</option>
+                        </select>
                     </div>
 
                     <!-- Submit knop -->
