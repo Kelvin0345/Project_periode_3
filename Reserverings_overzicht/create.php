@@ -145,6 +145,7 @@ if (isset($_POST['submit'])) {
                                value="<?= $_POST['Tijd'] ?? '' ?>">
                     </div>
 
+                    <!-- Submit knop -->
                     <div class="d-grid gap-2">
                         <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>                      
                     </div>
