@@ -7,3 +7,5 @@ $dbName = 'accountenoverzicht';
 //User settings
 $dbUser = 'root';
 $dbPass = '';
+
+?>
