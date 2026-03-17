@@ -77,6 +77,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container mt-3">
 
+        <!-- Alert -->
         <div class="row justify-content-center" style="display:<?= $display ?? 'none'; ?>;">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
@@ -85,12 +86,16 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
 
+        <!-- Nieuwe reservering -->
         <div class="row justify-content-center">
             <div class="col-6"><h3 class="text-primary">Voer nieuwe reservering toe:</h3></div>
         </div>
 
+        <!-- Formule invullen van nieuwe reservering -->
         <div class="row justify-content-center">
             <div class="col-6">
+                
+                <!-- Input voornaam -->
                 <form action="create.php" method="POST">
                     <div class="mb-3">
                         <label for="inputVoornaam" class="form-label">Voornaam:</label>
@@ -98,36 +103,42 @@ if (isset($_POST['submit'])) {
                                value="<?= $_POST['Voornaam'] ?? '' ?>">
                     </div>
                     
+                    <!-- Input tussenvoegsel -->
                     <div class="mb-3">
                         <label for="inputTussenvoegsel" class="form-label">Tussenvoegsel:</label>
                         <input name="Tussenvoegsel" placeholder="Vul de tussenvoegsel in" type="text" class="form-control" id="inputTussenvoegsel"
                                value="<?= $_POST['Tussenvoegsel'] ?? '' ?>">
                     </div>
 
+                    <!-- Input achternaam -->
                     <div class="mb-3">
                         <label for="inputAchternaam" class="form-label">Achternaam:</label>
                         <input name="Achternaam" placeholder="Vul het Achternaam in" type="text" class="form-control" id="inputAchternaam"
                                value="<?= $_POST['Achternaam'] ?? '' ?>">
                     </div>
                     
+                    <!-- input nummer -->
                     <div class="mb-3">
                         <label for="inputNummer" class="form-label">Nummer:</label>
                         <input name="Nummer" placeholder="Vul nummer in in" type="Number" class="form-control" id="inputNummer"
                                value="<?= $_POST['Nummer'] ?? '' ?>">
                     </div>
-
+                    
+                    <!-- input datum -->
                     <div class="mb-3">
                         <label for="inputDatum" class="form-label">Datum:</label>
                         <input name="Datum" placeholder="Vul de datum in" type="Date" class="form-control" id="inputDatum"
                                value="<?= $_POST['Datum'] ?? '' ?>">
                     </div>
 
+                    <!-- Input tijd -->
                     <div class="mb-3">
                         <label for="inputTijd" class="form-label">Tijd:</label>
                         <input name="Tijd" placeholder="Vul de tijd in" type="Time" class="form-control" id="inputTijd"
                                value="<?= $_POST['Tijd'] ?? '' ?>">
                     </div>
 
+                    <!-- reservering status -->
                     <div class="mb-3">
                         <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
                         <input name="Reserveringstatus" placeholder="Vul de reserveringstatus in" type="Text" class="form-control" id="inputReserveringstatus"
