@@ -83,6 +83,10 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         <p class="medewerkers-subtitle">Bekijk hier alle reserveringen</p>
     </div>
 
+    <!-- Nieuwe reservering toevoegen -->
+    <div class="row justify-content-center my-3">
+        <div class="col-10"><h6>Nieuwe Reservering <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></a></h6></div>
+    </div> 
 
 
     <!-- Container tabel -->
