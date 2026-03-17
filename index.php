@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+session_unset();
+session_destroy();
+
+header('Location: index.php');
+exit;
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -13,8 +22,8 @@
     <nav class="navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
         <ul class="nav-links">
-            <li><a href="/index.html" class="active">Home</a></li>
-            <li><a href="/Lessen.html">Lessen</a></li>
+            <li><a href="/index.php" class="active">Home</a></li>
+            <li><a href="/Lessen.php">Lessen</a></li>
             <li><a href="#vacatures">Vacaturen</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
