@@ -128,6 +128,12 @@ if (isset($_POST['submit'])) {
                                value="<?= $_POST['Tijd'] ?? '' ?>">
                     </div>
 
+                    <div class="mb-3">
+                        <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
+                        <input name="Status" placeholder="Vul de reserveringstatus in" type="Text" class="form-control" id="inputReserveringstatus"
+                               value="<?= $_POST['Tijd'] ?? '' ?>">
+                    </div>
+
                     <div class="d-grid gap-2">
                         <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>                      
                     </div>
