@@ -123,9 +123,9 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputYearOfConstruction" class="form-label">Bouwjaar:</label>
-                        <input name="bouwjaar" placeholder="Vul het bouwjaar in" type="date" class="form-control" id="inputYearOfConstruction"
-                               value="<?= $_POST['bouwjaar'] ?? '' ?>">
+                        <label for="inputTijd" class="form-label">Tijd:</label>
+                        <input name="Tijd" placeholder="Vul de tijd in" type="Time" class="form-control" id="inputTijd"
+                               value="<?= $_POST['Tijd'] ?? '' ?>">
                     </div>
 
                     <div class="d-grid gap-2">
