@@ -1,0 +1,21 @@
+/* ===========================
+   RESERVERING FORM
+=========================== */
+
+.form-control {
+    background-color: #161616;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: #1f1f1f;
+    border-color: #043878;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+.form-label {
+    color: #cccccc;
+    font-weight: 500;
+}
