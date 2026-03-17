@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-6"><h3 class="text-primary">Voer een nieuwe achtbaan in:</h3></div>
+            <div class="col-6"><h3 class="text-primary">Voer nieuwe reservering toe:</h3></div>
         </div>
 
         <div class="row justify-content-center">
