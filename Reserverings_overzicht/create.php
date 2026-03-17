@@ -1,9 +1,11 @@
 <?php
+// submit knop
 if (isset($_POST['submit'])) {
 
     // inloggegevens gebruiker database binnenhalen
     include('config/config.php');
 
+    
     // PDO gebruiken
     $dsn = "mysql:host=$dbHost;
             dbname=$dbName;
