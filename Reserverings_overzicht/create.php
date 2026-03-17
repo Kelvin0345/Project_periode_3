@@ -113,13 +113,13 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label for="inputNummer" class="form-label">Nummer:</label>
                         <input name="Nummer" placeholder="Vul nummer in in" type="Number" class="form-control" id="inputNummer"
-                               value="<?= $_POST['Number'] ?? '' ?>">
+                               value="<?= $_POST['Nummer'] ?? '' ?>">
                     </div>
 
                     <div class="mb-3">
                         <label for="inputDatum" class="form-label">Datum:</label>
-                        <input name="Hoogte" placeholder="Vul de hoogte in" type="Date" class="form-control" id="inputHoogte"
-                               value="<?= $_POST['Hoogte'] ?? '' ?>">
+                        <input name="Datum" placeholder="Vul de datum in" type="Date" class="form-control" id="inputDatum"
+                               value="<?= $_POST['Datum'] ?? '' ?>">
                     </div>
 
                     <div class="mb-3">
