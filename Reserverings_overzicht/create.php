@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
     $statement->bindValue(':Datum', $_POST['Datum'], PDO::PARAM_STR);
     $statement->bindValue(':Tijd', $_POST['Tijd'], PDO::PARAM_STR);
     $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
-
+    
     // query uitvoeren
     $statement->execute();
 
