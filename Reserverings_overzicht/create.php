@@ -93,9 +93,9 @@ if (isset($_POST['submit'])) {
             <div class="col-6">
                 <form action="create.php" method="POST">
                     <div class="mb-3">
-                        <label for="inputNaamAchtbaan" class="form-label">Naam Achtbaan:</label>
-                        <input name="naamAchtbaan" placeholder="Vul de naam van de achtbaan in" type="text" class="form-control" id="inputNaamAchtbaan"
-                               value="<?= $_POST['naamAchtbaan'] ?? '' ?>">
+                        <label for="inputVoornaam" class="form-label">Voornaam:</label>
+                        <input name="Voornaam" placeholder="Vul de voornaam in" type="text" class="form-control" id="inputVoornaam"
+                               value="<?= $_POST['Voornaam'] ?? '' ?>">
                     </div>
                     
                     <div class="mb-3">
