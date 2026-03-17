@@ -84,8 +84,14 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     </div>
 
     <!-- Nieuwe reservering toevoegen -->
-    <div class="row justify-content-center my-3">
-        <div class="col-10"><h6>Nieuwe Reservering <a href="./create.php"><i class="bi bi-plus-square text-danger"></i></a></h6></div>
+   <div class="row justify-content-center my-3">
+        <div class="col-10">
+            <h6>
+                <a href="./create.php" class="btn btn-danger btn-sm ms-2">
+                    <i class="bi bi-plus-square"></i> Nieuwe Reservering
+                </a>
+            </h6>
+        </div>
     </div> 
 
 
