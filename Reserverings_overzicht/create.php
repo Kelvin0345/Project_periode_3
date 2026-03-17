@@ -44,12 +44,13 @@ if (isset($_POST['submit'])) {
     // voorbereiden sql query uitvoering PDO
     $statement = $pdo->prepare($sql);
 
-    $statement->bindValue(':RollerCoaster', $_POST['naamAchtbaan'], PDO::PARAM_STR);
-    $statement->bindValue(':AmusementPark', $_POST['naamPretpark'], PDO::PARAM_STR);
-    $statement->bindValue(':Country', $_POST['Land'], PDO::PARAM_STR);
-    $statement->bindValue(':TopSpeed', $_POST['Topsnelheid'], PDO::PARAM_STR);
-    $statement->bindValue(':Height', $_POST['Hoogte'], PDO::PARAM_STR);
-    $statement->bindValue(':YearOfConstruction', $_POST['bouwjaar'], PDO::PARAM_STR);
+    $statement->bindValue(':Voornaam', $_POST['Voornaam'], PDO::PARAM_STR);
+    $statement->bindValue(':Tussenvoegsel', $_POST['Tussenvoegsel'], PDO::PARAM_STR);
+    $statement->bindValue(':Achternaam', $_POST['Achternaam'], PDO::PARAM_STR);
+    $statement->bindValue(':Nummer', $_POST['Nummer'], PDO::PARAM_STR);
+    $statement->bindValue(':Datum', $_POST['Datum'], PDO::PARAM_STR);
+    $statement->bindValue(':Tijd', $_POST['Tijd'], PDO::PARAM_STR);
+    $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
 
     // query uitvoeren
     $statement->execute();
