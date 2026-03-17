@@ -1,67 +1,25 @@
 SET SQL_SAFE_UPDATES = 0;
--- step : 01 
--- /************************************************************
--- Doel Maak een nieuwe Database aan: accountenoverzicht
--- ************************************************************
--- Versie   Datum       Auteur      Omschrijving
--- *******  ******      ******      ************
--- 01       05-12-2025  Zyon Kolf    Database met de overzicht van accounten maken
---
--- *************************************************************/
 
-
--- verwijder de database accountenoverzicht
 DROP DATABASE IF EXISTS accountenoverzicht;
-
-
--- Maak de database accountenoverzicht
 CREATE DATABASE accountenoverzicht;
-
-
--- Gebruik de database
 USE accountenoverzicht;
-
--- step : 02
--- /************************************************************
--- Doel Maak een nieuwe tabel aan: accountenoverzicht
--- ************************************************************
--- Versie   Datum       Auteur      Omschrijving
--- *******  ******      ******      ************
--- 01       05-12-2025  Zyon Kolf    Tabel maken met de overzicht van accounten
---
--- *************************************************************/
-
--- Maak de tabel Accountenoverzicht aan
 
 CREATE TABLE accountenoverzicht
 (
-    Id                  INT             NOT NULL                            COMMENT 'Primary key van tabel Persoon'
-,Voornaam           VARCHAR(50)         NOT NULL                            COMMENT 'Voornaam van de persoon'
-,Tussenvoegsel      VARCHAR(10)         NULL                                COMMENT 'Tussenvoegsel van de persoon'
-,Achternaam         VARCHAR(50)         NOT NULL                            COMMENT 'Achternaam van de persoon'
-,Relatienummer      MEDIUMINT           NOT NULL                            COMMENT 'Uniek relatienummer'
-,Mobiel             VARCHAR(20)         NOT NULL                            COMMENT 'Mobiel telefoonnummer'
-,Email              VARCHAR(100)        NOT NULL                            COMMENT 'Email adres'
-,Wachtwoord         VARCHAR(255)        NOT NULL                            COMMENT 'Wachtwoord van het account'
-,Isactief           BIT                 NOT NULL        DEFAULT 1           COMMENT 'Geeft aan of de persoon actief is (1)'
-,Opmerking          VARCHAR(250)        NULL            DEFAULT NULL        COMMENT 'Extra opmerking'
-,Datumaangemaakt    DATETIME(6)         NOT NULL        DEFAULT NOW(6)      COMMENT 'Datum waarop record is aangemaakt'
-,Datumgewijzigd     DATETIME(6)         NOT NULL        DEFAULT NOW(6)      COMMENT 'Datum van laatste wijziging'
-    ,CONSTRAINT         PK_Accountenoverzicht_Id          PRIMARY KEY (Id)
+    Id               INT NOT NULL AUTO_INCREMENT COMMENT 'Primary key van tabel Persoon',
+    Voornaam         VARCHAR(50)  NOT NULL COMMENT 'Voornaam van de persoon',
+    Tussenvoegsel    VARCHAR(10)  NULL COMMENT 'Tussenvoegsel van de persoon',
+    Achternaam       VARCHAR(50)  NOT NULL COMMENT 'Achternaam van de persoon',
+    Relatienummer    MEDIUMINT    NOT NULL COMMENT 'Uniek relatienummer',
+    Mobiel           VARCHAR(20)  NOT NULL COMMENT 'Mobiel telefoonnummer',
+    Email            VARCHAR(100) UNIQUE NOT NULL COMMENT 'Email adres',
+    Wachtwoord       VARCHAR(255) NOT NULL COMMENT 'Wachtwoord van het account',
+    Isactief         BIT          NOT NULL DEFAULT 1 COMMENT 'Geeft aan of de persoon actief is (1)',
+    Opmerking        VARCHAR(250) NULL DEFAULT NULL COMMENT 'Extra opmerking',
+    Datumaangemaakt  DATETIME(6)  NOT NULL DEFAULT NOW(6) COMMENT 'Datum waarop record is aangemaakt',
+    Datumgewijzigd   DATETIME(6)  NOT NULL DEFAULT NOW(6) COMMENT 'Datum van laatste wijziging',
+    CONSTRAINT PK_Accountenoverzicht_Id PRIMARY KEY (Id)
 ) ENGINE=InnoDB;
-
-
--- step : 03
--- /************************************************************
--- Doel vul de tabel accountenoverzicht met data
--- ************************************************************
--- Versie   Datum       Auteur      Omschrijving
--- *******  ******      ******      ************
--- 01       05-12-2025  Zyon Kolf    Vul tabel accountenoverzicht met data
---
--- *************************************************************/
-
--- Vul de tabel
 
 INSERT INTO accountenoverzicht
 (
