@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
 
                     <div class="mb-3">
                         <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
-                        <input name="Status" placeholder="Vul de reserveringstatus in" type="Text" class="form-control" id="inputReserveringstatus"
+                        <input name="Reserveringstatus" placeholder="Vul de reserveringstatus in" type="Text" class="form-control" id="inputReserveringstatus"
                                value="<?= $_POST['Tijd'] ?? '' ?>">
                     </div>
 
