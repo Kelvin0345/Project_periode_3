@@ -99,15 +99,15 @@ if (isset($_POST['submit'])) {
                     </div>
                     
                     <div class="mb-3">
-                        <label for="inputNaamPretpark" class="form-label">Naam Pretpark:</label>
-                        <input name="naamPretpark" placeholder="Vul de naam van het pretpark in" type="text" class="form-control" id="inputNaamPretpark"
-                               value="<?= $_POST['naamPretpark'] ?? '' ?>">
+                        <label for="inputTussenvoegsel" class="form-label">Tussenvoegsel:</label>
+                        <input name="Tussenvoegsel" placeholder="Vul de tussenvoegsel in" type="text" class="form-control" id="inputTussenvoegsel"
+                               value="<?= $_POST['Tussenvoegsel'] ?? '' ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputLand" class="form-label">Land:</label>
-                        <input name="Land" placeholder="Vul het land in" type="text" class="form-control" id="inputLand"
-                               value="<?= $_POST['Land'] ?? '' ?>">
+                        <label for="inputAchternaam" class="form-label">Achternaam:</label>
+                        <input name="Achternaam" placeholder="Vul het Achternaam in" type="text" class="form-control" id="inputAchternaam"
+                               value="<?= $_POST['Achternaam'] ?? '' ?>">
                     </div>
                     
                     <div class="mb-3">
