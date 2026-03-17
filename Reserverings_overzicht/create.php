@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     // inloggegevens gebruiker database binnenhalen
     include('config/config.php');
 
-    
+
     // PDO gebruiken
     $dsn = "mysql:host=$dbHost;
             dbname=$dbName;
@@ -19,23 +19,25 @@ if (isset($_POST['submit'])) {
     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     // INSERT query
-   $sql = "INSERT INTO rollercoaster
+   $sql = "INSERT INTO Reservering
         (   
-              RollerCoaster 
-             ,AmusementPark 
-             ,Country
-             ,TopSpeed 
-             ,Height
-             ,YearOfConstruction
+              Voornaam 
+             ,Tussenvoegsel 
+             ,Achternaam
+             ,Nummer
+             ,Datum
+             ,Tijd
+             ,Reserveringstatus
         )
         VALUES
         (
-              :RollerCoaster 
-             ,:AmusementPark 
-             ,:Country 
-             ,:TopSpeed
-             ,:Height 
-             ,:YearOfConstruction
+              :Voornaam 
+             ,:Tussenvoegsel 
+             ,:Achternaam 
+             ,:Nummer
+             ,:Datum 
+             ,:Tijd
+             ,:Reserveringstatus
         )";
 
 
