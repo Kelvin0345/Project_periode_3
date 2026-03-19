@@ -73,10 +73,10 @@ if (isset($_POST['submit'])) {
           crossorigin="anonymous">
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./css/create.css">
+    <link rel="stylesheet" href="./css/create.css\">
 </head>
 <body>
-    <div class="container mt-3">
+    <div class="formulier-container mt-3">
 
         <!-- Alert -->
         <div class="row justify-content-center" style="display:<?= $display ?? 'none'; ?>;">
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <!-- Formule invullen van nieuwe reservering -->
-        <div class="row justify-content-center">
+        <div class="formulier row justify-content-center">
             <div class="col-6">
                 
                 <!-- Input voornaam -->
@@ -167,5 +167,8 @@ if (isset($_POST['submit'])) {
             </div>  
         </div>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
