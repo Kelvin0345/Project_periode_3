@@ -51,42 +51,27 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/Style.css">
 </head>
-<body class="Reservering">
+<body>
     
     <!-- NAVBAR -->
-    <Header>
-        <nav class="navbar">
-            <div class="nav-logo">FitFor<span>FUN</span></div>
+    
+    <nav class="navbar">
+        <div class="nav-logo">FitFor<span>FUN</span></div>
             <ul class="nav-links">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/Lessen.html">Lessen</a></li>
                 <li><a href="#vacatures">Vacaturen</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-auth">
-                <a href="#" class="btn-registreer">Registreren</a>
-                <a href="#" class="btn-login">Login</a>
-            </div>
-        </nav>
-    </Header>
-
-    <!-- Reservering overzicht container -->
-
-  
-
+        </div>
+        <div class="nav-auth">
+            <a href="#" class="btn-registreer">Registreren</a>
+            <a href="#" class="btn-login">Login</a>
+        </div>
+    </nav>
    
-    
-    <!-- Paginatitel -->
-    <div class="medewerkers-header text-center">
-        <p class="hero-label">FitForFun</p>
-        <h1 class="medewerkers-titel">Reservering <span>Overzicht</span></h1>
-        <p class="medewerkers-subtitle">Bekijk hier alle reserveringen</p>
-    </div>
 
-    <!-- Nieuwe reservering toevoegen -->
-  
-
-    
+ 
 
 
     <!-- Container tabel -->
@@ -95,18 +80,24 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             <h1 class="reserveringen-titel">
                 Reserveringen <span>Overzicht</span>
             </h1>
+            
+            <!-- Nieuwe reservering toevoegen -->
+            <div class="row justify-content-center my-3">
+                <div class="col-10">
+                    <h6>
+                        <a href="./create.php" class="btn btn-danger btn-sm ms-2">
+                            <i class="bi bi-plus-square"></i> Nieuwe Reservering
+                        </a>
+                    </h6>
+                </div>
+            </div>
+        
+        
+        
         </div>
 
-        <!-- Nieuwe reservering toevoegen -->
-        <div class="row justify-content-center my-3">
-            <div class="col-10">
-                <h6>
-                    <a href="./create.php" class="btn btn-danger btn-sm ms-2">
-                        <i class="bi bi-plus-square"></i> Nieuwe Reservering
-                    </a>
-                </h6>
-            </div>
-        </div> 
+
+      
 
 
 
