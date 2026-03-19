@@ -115,7 +115,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                         <th>Nummer</th>
                         <th>Datum</th>
                         <th>Tijd</th>
-                        <th>Status</th>
+                        <th>Reserveringstatus</th>
                     </tr>
                 </thead>
                 <tbody>
