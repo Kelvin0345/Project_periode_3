@@ -127,21 +127,6 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
-    <!-- SOCIAL MEDIA KNOPPEN -->
-    <div class="social-float">
-        <a href="#" class="social-btn x-btn">
-            <img src="img/x.png" alt="X">
-        </a>
-
-        <a href="#" class="social-btn fb-btn">
-            <img src="img/fb.png" alt="Facebook">
-        </a>
-
-        <a href="#" class="social-btn ig-btn">
-            <img src="img/iglogo.png" alt="Instagram">
-        </a>
-    </div>
-    
     <!-- FOOTER -->
     <footer class="footer" id="contact">
         <div class="footer-inner">
