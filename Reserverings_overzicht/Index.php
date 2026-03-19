@@ -98,20 +98,28 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
     <!-- Container tabel -->
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <table class="table table-striped table-hover">
+   <div class="reserveringen-pagina">
+        <div class="reserveringen-header">
+            <h1 class="reserveringen-titel">
+                Reserveringen <span>Overzicht</span>
+            </h1>
+        </div>
+
+        <div class="tabel-wrapper">
+            <table class="table table-striped table-hover reserveringen-tabel">
                 <thead>
-                    <th>Voornaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
-                    <th>Nummer</th>
-                    <th>Datum</th>
-                    <th>Tijd</th>
-                    <th>Reserveringstatus</th>
+                    <tr>
+                        <th>Voornaam</th>
+                        <th>Tussenvoegsel</th>
+                        <th>Achternaam</th>
+                        <th>Nummer</th>
+                        <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $Reservering):?>
+                    <?php foreach ($result as $Reservering): ?>
                         <tr>
                             <td><?= $Reservering->Voornaam; ?></td>
                             <td><?= $Reservering->Tussenvoegsel; ?></td>
