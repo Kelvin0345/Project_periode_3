@@ -71,7 +71,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     </nav>
    
 
- 
+    
 
 
     <!-- Container tabel -->
@@ -79,21 +79,18 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         <div class="reserveringen-header">
             <h1 class="reserveringen-titel">
                 Reserveringen <span>Overzicht</span>
-            </h1>
-            
-            <!-- Nieuwe reservering toevoegen -->
-            <div class="row justify-content-center my-3">
-                <div class="col-10">
-                    <h6>
-                        <a href="./create.php" class="btn btn-danger btn-sm ms-2">
-                            <i class="bi bi-plus-square"></i> Nieuwe Reservering
-                        </a>
-                    </h6>
-                </div>
+            </h1>      
+        </div>
+
+        <!-- Nieuwe reservering toevoegen -->
+        <div class="row justify-content-center my-3">
+            <div class="col-10">
+                <h6>
+                    <a href="./create.php" class="btn btn-danger btn-sm ms-2">
+                        <i class="bi bi-plus-square"></i> Nieuwe Reservering
+                    </a>
+                </h6>
             </div>
-        
-        
-        
         </div>
 
 
