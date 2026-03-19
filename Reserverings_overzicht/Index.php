@@ -141,6 +141,21 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             <img src="img/iglogo.png" alt="Instagram">
         </a>
     </div>
+    
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <div class="footer-logo">FitFor<span>Fun</span></div>
+            <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
+            <div class="footer-links">
+                <a href="./geplande_lessen/index.php">geplande lessen</a>
+                <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
+                <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
+                <a href="#">Privacy</a>
+                <a href="#">Vacaturen</a>
+            </div>
+        </div>
+    </footer>
 
     
     
