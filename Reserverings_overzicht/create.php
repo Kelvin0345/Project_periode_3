@@ -101,48 +101,48 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label for="inputVoornaam" class="form-label">Voornaam:</label>
                         <input name="Voornaam" placeholder="Vul de voornaam in" type="text" class="form-control" id="inputVoornaam"
-                               value="<?= $_POST['Voornaam'] ?? '' ?>">
+                               value="<?= $_POST['Voornaam'] ?? '' ?>" required>
                     </div>
                     
                     <!-- Input tussenvoegsel -->
                     <div class="mb-3">
                         <label for="inputTussenvoegsel" class="form-label">Tussenvoegsel:</label>
                         <input name="Tussenvoegsel" placeholder="Vul de tussenvoegsel in" type="text" class="form-control" id="inputTussenvoegsel"
-                               value="<?= $_POST['Tussenvoegsel'] ?? '' ?>">
+                               value="<?= $_POST['Tussenvoegsel'] ?? null ?>" >
                     </div>
 
                     <!-- Input achternaam -->
                     <div class="mb-3">
                         <label for="inputAchternaam" class="form-label">Achternaam:</label>
                         <input name="Achternaam" placeholder="Vul het Achternaam in" type="text" class="form-control" id="inputAchternaam"
-                               value="<?= $_POST['Achternaam'] ?? '' ?>">
+                               value="<?= $_POST['Achternaam'] ?? '' ?>" required>
                     </div>
                     
                     <!-- input nummer -->
                     <div class="mb-3">
                         <label for="inputNummer" class="form-label">Nummer:</label>
                         <input name="Nummer" placeholder="Vul nummer in in" type="Number" class="form-control" id="inputNummer"
-                               value="<?= $_POST['Nummer'] ?? '' ?>">
+                               value="<?= $_POST['Nummer'] ?? '' ?>" required>
                     </div>
                     
                     <!-- input datum -->
                     <div class="mb-3">
                         <label for="inputDatum" class="form-label">Datum:</label>
                         <input name="Datum" placeholder="Vul de datum in" type="Date" class="form-control" id="inputDatum"
-                               value="<?= $_POST['Datum'] ?? '' ?>">
+                               value="<?= $_POST['Datum'] ?? '' ?>" required>
                     </div>
 
                     <!-- Input tijd -->
                     <div class="mb-3">
                         <label for="inputTijd" class="form-label">Tijd:</label>
                         <input name="Tijd" placeholder="Vul de tijd in" type="Time" class="form-control" id="inputTijd"
-                               value="<?= $_POST['Tijd'] ?? '' ?>">
+                               value="<?= $_POST['Tijd'] ?? '' ?>" required>
                     </div>
 
                     <!-- reservering status -->
                     <div class="mb-3">
                         <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
-                        <select name="Reserveringstatus" class="form-control" id="inputReserveringstatus">
+                        <select name="Reserveringstatus" class="form-control" id="inputReserveringstatus" required>
                             <option value="">Kies een status</option>
                             <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
                             <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
