@@ -206,271 +206,68 @@ body {
     color: #043878;
 }
 
-/* ===========================
-   ANIMATIE
-=========================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+/* TABEL STYLING */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* ===========================
-   LESSEN PAGINA – PAGE HEADER
-=========================== */
-.page-header {
-    position: relative;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600');
-    background-size: cover;
-    background-position: center;
-}
-
-.page-header-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.88) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-    );
-}
-
-.page-header-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 80px;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.page-header-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 80px;
-    color: #ffffff;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 12px;
-}
-
-.page-header-title span {
-    color: #043878;
-}
-
-.page-header-sub {
-    font-size: 17px;
-    color: #aaaaaa;
-    font-weight: 300;
-}
-
-/* ===========================
-   RESPONSIVE (eenvoudig)
-=========================== */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 16px 24px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero-content {
-        padding: 0 24px;
-    }
-
-    .hero-title {
-        font-size: 60px;
-    }
-
-    .hero-stats {
-        gap: 0;
-    }
-
-    .stat {
-        padding: 20px 12px;
-    }
-
-    .footer {
-        padding: 40px 24px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* ===========================
-   RESPONSIVE – LESSEN PAGINA
-=========================== */
-@media (max-width: 900px) {
-    .lessen-grid-groot {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .lessen-pagina {
-        padding: 40px 24px 60px;
-    }
-
-    .filter-sectie {
-        padding: 24px;
-    }
-
-    .page-header-content {
-        padding: 0 24px;
-    }
-
-    .page-header-title {
-        font-size: 54px;
-    }
-}
-
-@media (max-width: 600px) {
-    .lessen-grid-groot {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===========================
-   MEDEWERKERS PAGINA
-=========================== */
-.medewerkers-pagina {
-    min-height: 80vh;
-    padding: 120px 80px 80px; /* padding-top is groter vanwege de vaste navbar */
-    background-color: #0d0d0d;
-}
-
-/* Titel blok bovenaan */
-.medewerkers-header {
-    margin-bottom: 40px;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.medewerkers-titel {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
-    color: #ffffff;
-    letter-spacing: 2px;
-    line-height: 1;
-}
-
-.medewerkers-titel span {
-    color: #043878;
-}
-
-/* Wrapper om de tabel */
-.tabel-wrapper {
-    background-color: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 10px;
-    overflow: hidden; /* zodat de border-radius ook op de tabel werkt */
-    animation: fadeInUp 0.9s ease forwards;
-}
-
-/* De tabel zelf */
-.medewerkers-tabel {
-    margin-bottom: 0; /* Bootstrap voegt standaard margin toe, dat halen we weg */
-    color: #f0f0f0;
-}
-
-/* Tabel hoofd rij */
-.medewerkers-tabel thead tr {
-    background-color: #043878 !important;
-}
-
-.medewerkers-tabel thead th {
-    color: #020101;
-    font-family: 'Barlow', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 2px;
+/* Header */
+.table thead {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
     text-transform: uppercase;
-    padding: 16px 20px;
-    border: none;
-}
-
-/* Tabel rijen */
-.medewerkers-tabel tbody tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background-color 0.2s;
-}
-
-/* Bootstrap table-striped overschrijven met donkere kleuren */
-.medewerkers-tabel.table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: #1f1f1f;
-    color: #f0f0f0;
-}
-
-.medewerkers-tabel.table-striped > tbody > tr:nth-of-type(even) > * {
-    background-color: #161616;
-    color: #f0f0f0;
-}
-
-/* Bootstrap table-hover overschrijven */
-.medewerkers-tabel.table-hover > tbody > tr:hover > * {
-    background-color: rgba(4, 56, 120, 0.2);
-    color: #ffffff;
-}
-
-.medewerkers-tabel tbody td {
-    padding: 14px 20px;
-    font-size: 16px;
-    color: #cccccc;
-    border: none;
-    vertical-align: middle;
-}
-
-/* Badges voor medewerkersoort */
-.mdw-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
     letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
-/* Kleur per soort medewerker */
-.mdw-manager {
-    background-color: rgba(4, 56, 120, 0.3);
-    color: #6eaaff;
-    border: 1px solid rgba(4, 56, 120, 0.5);
+.table th {
+    padding: 15px;
+    border: none;
 }
 
-.mdw-beheerder {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.3);
+/* Body */
+.table td {
+    padding: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 15px;
 }
 
-.mdw-diskmedewerker {
-    background-color: rgba(255, 255, 255, 0.07);
-    color: #aaaaaa;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+/* Zebra effect (rustiger dan bootstrap) */
+.table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
 }
 
-/* ===========================
-   RESPONSIVE – MEDEWERKERS
-=========================== */
-@media (max-width: 768px) {
-    .medewerkers-pagina {
-        padding: 100px 16px 60px;
-    }
+/* Hover effect */
+.table tbody tr:hover {
+    background-color: #ffe4e6;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
 
-    .medewerkers-titel {
-        font-size: 42px;
-    }
+/* Status styling (optioneel) */
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
 
-    /* Tabel horizontaal scrollbaar op kleine schermen */
-    .tabel-wrapper {
-        overflow-x: auto;
-    }
+/* Voorbeeld statussen */
+.status-bevestigd {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-geannuleerd {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-wacht {
+    background-color: #fef9c3;
+    color: #854d0e;
 }
