@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                     <!-- Input tijd -->
                     <div class="mb-3">
                         <label for="inputTijd" class="form-label">Tijd:</label>
-                        <input name="Tijd" placeholder="Vul de tijd in" type="Time" class="form-control" id="inputTijd"
+                        <input name="Tijd" placeholder="Vul de tijd in" type="text" class="form-control" id="inputTijd"
                                value="<?= $_POST['Tijd'] ?? '' ?>" required>
                     </div>
 
