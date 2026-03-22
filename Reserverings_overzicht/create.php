@@ -1,11 +1,174 @@
+<?php
+// submit knop
+if (isset($_POST['submit'])) {
+
+    // inloggegevens gebruiker database binnenhalen
+    include('config/config.php');
+
+
+    // PDO gebruiken
+    $dsn = "mysql:host=$dbHost;
+            dbname=$dbName;
+            charset=UTF8";
+
+    // maak nieuw PDO object
+    $pdo = new PDO($dsn, $dbUser, $dbPass);
+   
+
+    // $_POST waarden schoonmaken
+    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    // INSERT query
+   $sql = "INSERT INTO Reservering
+        (   
+              Voornaam 
+             ,Tussenvoegsel 
+             ,Achternaam
+             ,Nummer
+             ,Datum
+             ,Tijd
+             ,Reserveringstatus
+        )
+        VALUES
+        (
+              :Voornaam 
+             ,:Tussenvoegsel 
+             ,:Achternaam 
+             ,:Nummer
+             ,:Datum 
+             ,:Tijd
+             ,:Reserveringstatus
+        )";
+
+
+    // voorbereiden sql query uitvoering PDO
+    $statement = $pdo->prepare($sql);
+
+    $statement->bindValue(':Voornaam', $_POST['Voornaam'], PDO::PARAM_STR);
+    $statement->bindValue(':Tussenvoegsel', $_POST['Tussenvoegsel'], PDO::PARAM_STR);
+    $statement->bindValue(':Achternaam', $_POST['Achternaam'], PDO::PARAM_STR);
+    $statement->bindValue(':Nummer', $_POST['Nummer'], PDO::PARAM_STR);
+    $statement->bindValue(':Datum', $_POST['Datum'], PDO::PARAM_STR);
+    $statement->bindValue(':Tijd', $_POST['Tijd'], PDO::PARAM_STR);
+    $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
+
+    // query uitvoeren
+    $statement->execute();
+
+    
+    // melding toevoegen
+    $display = 'block';
+    header('Refresh:3; index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nieuwe Reservering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+          rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/create.css\">
 </head>
 <body>
-    
+    <div class="formulier-container mt-3">
+
+        <!-- Alert -->
+        <div class="row justify-content-center" style="display:<?= $display ?? 'none'; ?>;">
+            <div class="col-6">
+                <div class="alert alert-success text-center" role="alert">
+                    De gegevens zijn toegevoegd. U wordt teruggestuurd naar de index-pagina.
+                </div>
+            </div>
+        </div>
+
+        <!-- Nieuwe reservering -->
+        <div class="row justify-content-center">
+            <div class="col-6"><h3 class="text-primary">Voer nieuwe reservering toe:</h3></div>
+        </div>
+
+        <!-- Formule invullen van nieuwe reservering -->
+        <div class="formulier row justify-content-center">
+            <div class="col-6">
+                
+                <!-- Input voornaam -->
+                <form action="create.php" method="POST">
+                    <div class="mb-3">
+                        <label for="inputVoornaam" class="form-label">Voornaam:</label>
+                        <input name="Voornaam" placeholder="Vul de voornaam in" type="text" class="form-control" id="inputVoornaam"
+                               value="<?= $_POST['Voornaam'] ?? '' ?>" required>
+                    </div>
+                    
+                    <!-- Input tussenvoegsel -->
+                    <div class="mb-3">
+                        <label for="inputTussenvoegsel" class="form-label">Tussenvoegsel:</label>
+                        <input name="Tussenvoegsel" placeholder="Vul de tussenvoegsel in" type="text" class="form-control" id="inputTussenvoegsel"
+                               value="<?= $_POST['Tussenvoegsel'] ?? null ?>" >
+                    </div>
+
+                    <!-- Input achternaam -->
+                    <div class="mb-3">
+                        <label for="inputAchternaam" class="form-label">Achternaam:</label>
+                        <input name="Achternaam" placeholder="Vul het Achternaam in" type="text" class="form-control" id="inputAchternaam"
+                               value="<?= $_POST['Achternaam'] ?? '' ?>" required>
+                    </div>
+                    
+                    <!-- input nummer -->
+                    <div class="mb-3">
+                        <label for="inputNummer" class="form-label">Nummer:</label>
+                        <input name="Nummer" placeholder="Vul nummer in in" type="Number" class="form-control" id="inputNummer"
+                               value="<?= $_POST['Nummer'] ?? '' ?>" required>
+                    </div>
+                    
+                    <!-- input datum -->
+                    <div class="mb-3">
+                        <label for="inputDatum" class="form-label">Datum:</label>
+                        <input name="Datum" placeholder="Vul de datum in" type="Date" class="form-control" id="inputDatum"
+                               value="<?= $_POST['Datum'] ?? '' ?>" required>
+                    </div>
+
+                    <!-- Input tijd -->
+                    <div class="mb-3">
+                        <label for="inputTijd" class="form-label">Tijd:</label>
+                        <input name="Tijd" placeholder="Vul de tijd in" type="text" class="form-control" id="inputTijd"
+                               value="<?= $_POST['Tijd'] ?? '' ?>" required>
+                    </div>
+
+                    <!-- reservering status -->
+                    <div class="mb-3">
+                        <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
+                        <select name="Reserveringstatus" class="form-control" id="inputReserveringstatus" required>
+                            <option value="">Kies een status</option>
+                            <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
+                            <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
+                            <option value="Gereserveerd" <?= ($_POST['Reserveringstatus'] ?? '') == 'Gereserveerd' ? 'selected' : '' ?>>Gereserveerd</option>
+                            <option value="Geannuleerd" <?= ($_POST['Reserveringstatus'] ?? '') == 'Geannuleerd' ? 'selected' : '' ?>>Geannuleerd</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit knop -->
+                    <div class="d-grid gap-2">
+                        <button name="submit" type="submit" class="btn btn-primary btn-lg mt-2">Verstuur</button>                      
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-6">
+                <a href="index.php">
+                    <i class="bi bi-arrow-left-square-fill text-danger" style="font-size:1.5em"></i>
+                </a>
+            </div>  
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -51,55 +51,68 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/Style.css">
 </head>
-<body class="Reservering">
+<body>
     
     <!-- NAVBAR -->
-    <Header>
-        <nav class="navbar">
-            <div class="nav-logo">FitFor<span>FUN</span></div>
+    
+    <nav class="navbar">
+        <div class="nav-logo">FitFor<span>FUN</span></div>
             <ul class="nav-links">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/Lessen.html">Lessen</a></li>
                 <li><a href="#vacatures">Vacaturen</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-auth">
-                <a href="#" class="btn-registreer">Registreren</a>
-                <a href="#" class="btn-login">Login</a>
-            </div>
-        </nav>
-    </Header>
-
-    <!-- Reservering overzicht container -->
-
+        </div>
+        <div class="nav-auth">
+            <a href="#" class="btn-registreer">Registreren</a>
+            <a href="#" class="btn-login">Login</a>
+        </div>
+    </nav>
    
 
-   
     
-    <!-- Paginatitel -->
-    <div class="medewerkers-header text-center">
-        <p class="hero-label">FitForFun</p>
-        <h1 class="medewerkers-titel">Reservering <span>Overzicht</span></h1>
-        <p class="medewerkers-subtitle">Bekijk hier alle reserveringen</p>
-    </div>
-
 
 
     <!-- Container tabel -->
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <table class="table table-striped table-hover">
+   <div class="reserveringen-pagina">
+        <div class="reserveringen-header">
+            <h1 class="reserveringen-titel">
+                Reserveringen <span>Overzicht</span>
+            </h1>      
+        </div>
+
+        <!-- Nieuwe reservering toevoegen -->
+        <div class="row justify-content-center my-3">
+            <div class="col-10">
+                <h6>
+                    <a href="./create.php" class="btn btn-danger btn-sm ms-2">
+                        <i class="bi bi-plus-square"></i> Nieuwe Reservering
+                    </a>
+                </h6>
+            </div>
+        </div>
+
+
+      
+
+
+
+        <div class="tabel-wrapper">
+            <table class="table table-striped table-hover reserveringen-tabel">
                 <thead>
-                    <th>Voornaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
-                    <th>Nummer</th>
-                    <th>Datum</th>
-                    <th>Tijd</th>
-                    <th>Reserveringstatus</th>
+                    <tr>
+                        <th>Voornaam</th>
+                        <th>Tussenvoegsel</th>
+                        <th>Achternaam</th>
+                        <th>Nummer</th>
+                        <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Reserveringstatus</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $Reservering):?>
+                    <?php foreach ($result as $Reservering): ?>
                         <tr>
                             <td><?= $Reservering->Voornaam; ?></td>
                             <td><?= $Reservering->Tussenvoegsel; ?></td>
@@ -115,8 +128,22 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
-    <!-- Unhappy scenario -->
-    <!-- <h1>Geen Reserveringen</h1> -->
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <div class="footer-logo">FitFor<span>Fun</span></div>
+            <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
+            <div class="footer-links">
+                <a href="./geplande_lessen/index.php">geplande lessen</a>
+                <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
+                <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
+                <a href="#">Privacy</a>
+                <a href="#">Vacaturen</a>
+            </div>
+        </div>
+    </footer>
+
+    
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
