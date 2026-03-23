@@ -1,163 +1,202 @@
 /* Jouw Custom CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Barlow', sans-serif;
-            background-color: #0d0d0d;
-            color: #f0f0f0;
-            overflow-y: auto;
-            padding-top: 120px; /* Ruimte voor de fixed navbar */
-        }
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+    overflow-y: auto;
+    padding-top: 120px;
+    /* Ruimte voor de fixed navbar */
+}
 
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 60px;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        .nav-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 3px;
-            color: #ffffff;
-            text-decoration: none;
-        }
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-decoration: none;
+}
 
-        .nav-logo span {
-            color: #043878;
-        }
+.nav-logo span {
+    color: #043878;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 36px;
-            margin: 0;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    margin: 0;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: #cccccc;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
 
-        .nav-links a:hover {
-            color: #043878;
-        }
+.nav-links a:hover {
+    color: #043878;
+}
 
-        .nav-auth {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-        }
+.nav-auth {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
 
-        .btn-registreer {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
+.btn-registreer {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s;
+}
 
-        .btn-registreer:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+.btn-registreer:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
-        .btn-login {
-            text-decoration: none;
-            background-color: #043878;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
+.btn-login {
+    text-decoration: none;
+    background-color: #043878;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
 
-        .btn-login:hover {
-            background-color: #02244d;
-        }
+.btn-login:hover {
+    background-color: #02244d;
+}
 
-        /* Tabel & Content Styling */
-        h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            letter-spacing: 2px;
-            color: #ffffff;
-            margin-bottom: 20px;
-            border-left: 5px solid #043878;
-            padding-left: 15px;
-        }
+/* Tabel & Content Styling */
+.reserveringen-pagina {
+    min-height: 80vh;
+    padding: 120px 80px 80px;
+    background-color: #0d0d0d;
+    padding: 5em;
+}
 
-        .table-container {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+.reserveringen-header {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease forwards;
+}
 
-        .table {
-            color: #f0f0f0 !important;
-            margin-bottom: 0;
-        }
+.reserveringen-titel {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
 
-        .table thead th {
-            background-color: #043878 !important;
-            color: #ffffff !important;
-            border: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            padding: 15px;
-        }
+.reserveringen-titel span {
+    color: #043878;
+}
 
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(255, 255, 255, 0.03);
-        }
+/* TABEL STYLING */
+.reserveringen-tabel {
+    width: 100%;      /* vult de wrapper */
+    margin: 0 auto;   /* horizontaal centreren */
+    min-width: 900px;
+    border-collapse: collapse;
+    padding: 0;      
+    color: #f0f0f0;
+}
 
-        .table-hover tbody tr:hover {
-            background-color: rgba(4, 56, 120, 0.15) !important;
-            color: #ffffff !important;
-        }
+.reserveringen-tabel thead tr {
+    background-color: #043878 !important;
+}
 
-        td {
-            padding: 12px 15px !important;
-            vertical-align: middle;
-            border-color: rgba(255, 255, 255, 0.05) !important;
-        }
+.reserveringen-tabel thead th {
+    color: #020101;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border: none;
+}
 
-        /* Mobiel */
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .nav-links { display: none; }
-            h3 { font-size: 24px; }
-            body { padding-top: 100px; }
-        }
 
-        .footer {
+.reserveringen-tabel tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* striped */
+.reserveringen-tabel.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #1f1f1f;
+}
+
+.reserveringen-tabel.table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: #161616;
+}
+
+/* hover */
+.reserveringen-tabel.table-hover > tbody > tr:hover > * {
+    background-color: rgba(4, 56, 120, 0.2);
+    color: #ffffff;
+}
+
+.reserveringen-tabel tbody td {
+    padding: 14px 20px;
+    font-size: 16px;
+    color: #cccccc;
+    border: none;
+}
+
+/* Mobiel */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+}
+
+.footer {
     background-color: #0a0a0a;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding: 50px 80px;

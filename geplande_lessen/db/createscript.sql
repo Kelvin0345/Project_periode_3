@@ -88,7 +88,7 @@ CREATE TABLE OverzichtAantalLedenPerPeriode
     TotaalAantalLeden INT NOT NULL DEFAULT 0,
     IsActief           BIT                 NOT NULL             DEFAULT 1   COMMENT 'Geeft aan of de persoon actief is (1 = Ja, 0 = Nee)', 
     Opmerking VARCHAR(255) NULL
-      ,DatumAangemaakt     DATETIME(6)        NOT NULL			DEFAULT NOW(6)  COMMENT 'Datum en tijd van aanmaak'
+    ,DatumAangemaakt     DATETIME(6)        NOT NULL			DEFAULT NOW(6)  COMMENT 'Datum en tijd van aanmaak'
     ,DatumGewijzigd     DATETIME(6)         NOT NULL			DEFAULT NOW(6)  COMMENT 'Datum en tijd van laatste wijziging'
 ) ENGINE=InnoDB;
 

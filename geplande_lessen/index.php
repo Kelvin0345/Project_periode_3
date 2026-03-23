@@ -107,18 +107,17 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <th>Naam</th>
-                    <th>Prijs</th>
-                    <th>Datum</th>
-                    <th>Tijd</th>
-                    <th>MinAantalPersonen</th>
-                    <th>MaxAantalpersonen</th>
-                    <th>Beschikbaarheid</th>
-                </thead>
+    <div class="tabel-wrapper">
+        <table class="table table-striped table-hover reserveringen-tabel">
+            <thead>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Datum</th>
+                <th>Tijd</th>
+                <th>MinAantalPersonen</th>
+                <th>MaxAantalpersonen</th>
+                <th>Beschikbaarheid</th>
+            </thead>
                 <tbody>
                     <?php foreach ($lesResult as $LesOverzicht):?>
                         <tr>
@@ -132,8 +131,8 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
-            </table>
-        </div>
+        </table>
+        
     </div>
 
     <!-- Tabel aantal leden per periode -->
@@ -145,9 +144,8 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
     
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <table class="table table-striped table-hover">
+    <div class="table wrapper">
+        <table class="table table-striped table-hover reserveringen-tabel">
                 <thead>
                     <th>Periodestart</th>
                     <th>Periodeind</th>
@@ -155,19 +153,19 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                     <th>AantalVertrokkenLeden</th>
                     <th>Totaalaantalleden</th>
                 </thead>
-                <tbody>
-                    <?php foreach ($ledenResult as $OverzichtAantalLedenPerPeriode):?>
-                        <tr>
-                            <td><?= $OverzichtAantalLedenPerPeriode->PeriodeStart; ?></td>
-                            <td><?= $OverzichtAantalLedenPerPeriode->PeriodeEind; ?></td>
-                            <td><?= $OverzichtAantalLedenPerPeriode->AantalNieuweLeden; ?></td>
-                            <td><?= $OverzichtAantalLedenPerPeriode->AantalVertrokkenLeden; ?></td>
-                            <td><?= $OverzichtAantalLedenPerPeriode->TotaalAantalLeden; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+            <tbody>
+                <?php foreach ($ledenResult as $OverzichtAantalLedenPerPeriode):?>
+                     <tr>
+                        <td><?= $OverzichtAantalLedenPerPeriode->PeriodeStart; ?></td>
+                        <td><?= $OverzichtAantalLedenPerPeriode->PeriodeEind; ?></td>
+                        <td><?= $OverzichtAantalLedenPerPeriode->AantalNieuweLeden; ?></td>
+                        <td><?= $OverzichtAantalLedenPerPeriode->AantalVertrokkenLeden; ?></td>
+                        <td><?= $OverzichtAantalLedenPerPeriode->TotaalAantalLeden; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
     </div>
 
     <!-- FOOTER -->
