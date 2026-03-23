@@ -25,10 +25,10 @@ $sqlLes = "SELECT GLN.Id
 $statementLes = $pdo->prepare($sqlLes);
 $statementLes->execute();
 $lesResult = $statementLes->fetchAll(PDO::FETCH_OBJ);
+//var_dump
 
 
-
-
+//Leden select
 $sqlLeden = "SELECT OVALPP.Id
               ,OVALPP.PeriodeStart  
               ,OVALPP.PeriodeEind
@@ -37,12 +37,6 @@ $sqlLeden = "SELECT OVALPP.Id
               ,OVALPP.TotaalAantalLeden
         FROM OverzichtAantalLedenPerPeriode AS OVALPP 
         ORDER BY OVALPP.Id DESC";
-
-
-
-$statementLes = $pdo->prepare($sqlLes);
-$statementLes->execute();
-$lesResult = $statementLes->fetchAll(PDO::FETCH_OBJ);
 
 $statementLeden = $pdo->prepare($sqlLeden);
 $statementLeden->execute();
