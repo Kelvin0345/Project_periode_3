@@ -74,7 +74,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         <div class="tabel-wrapper">
             <table class="table table-striped table-hover medewerkers-tabel">
                 <thead>
-                    <tr>
+                    <tr class="text">
                         <th>Id</th>
                         <th>Voornaam</th>
                         <th>Tussenvoegsel</th>

@@ -197,7 +197,7 @@ body {
 }
 
 .medewerkers-tabel thead th {
-    color: #ffffff;
+    color: #000000;
     font-family: 'Barlow', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -206,6 +206,7 @@ body {
     padding: 16px 20px;
     border: none;
 }
+
 
 .medewerkers-tabel tbody tr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
