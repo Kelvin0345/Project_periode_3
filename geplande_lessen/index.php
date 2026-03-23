@@ -149,7 +149,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         <div class="col-10">
             <table class="table table-striped table-hover">
                 <thead>
-                    <th>Periodstart</th>
+                    <th>Periodestart</th>
                     <th>Periodeind</th>
                     <th>AantalNieuweleden</th>
                     <th>AantalVertrokkenLeden</th>
