@@ -83,7 +83,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                     <th>Beschikbaarheid</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($Lesresult as $LesOverzicht):?>
+                    <?php foreach ($lesResult as $LesOverzicht):?>
                         <tr>
                             <td><?= $LesOverzicht->Naam; ?></td>
                             <td><?= $LesOverzicht->Prijs; ?></td>
@@ -110,7 +110,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                     <th>Totaalaantalleden</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($LedenResult as $OverzichtAantalLedenPerPeriode):?>
+                    <?php foreach ($ledenResult as $OverzichtAantalLedenPerPeriode):?>
                         <tr>
                             <td><?= $OverzichtAantalLedenPerPeriode->PeriodeStart; ?></td>
                             <td><?= $OverzichtAantalLedenPerPeriode->PeriodeEind; ?></td>
