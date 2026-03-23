@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
           crossorigin="anonymous">
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./css/create.css\">
+    <link rel="stylesheet" href="./css/create.css">
 </head>
 <body>
     <div class="formulier-container mt-3">
