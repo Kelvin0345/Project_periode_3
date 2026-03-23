@@ -22,8 +22,14 @@ $sqlLes = "SELECT GLN.Id
               ,GLN.Beschikbaarheid
         FROM LesOverzicht AS GLN
         ORDER BY GLN.ID ASC";
+
+// Statment prepareren
 $statementLes = $pdo->prepare($sqlLes);
+
+// state uitvoeren
 $statementLes->execute();
+
+// tabel te zien
 $lesResult = $statementLes->fetchAll(PDO::FETCH_OBJ);
 //var_dump
 
@@ -38,8 +44,13 @@ $sqlLeden = "SELECT OVALPP.Id
         FROM OverzichtAantalLedenPerPeriode AS OVALPP 
         ORDER BY OVALPP.Id DESC";
 
+// Statment prepareren
 $statementLeden = $pdo->prepare($sqlLeden);
+
+// state uitvoeren
 $statementLeden->execute();
+
+// tabel te zien
 $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
 
 //data selecteren
