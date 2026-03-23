@@ -62,6 +62,8 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="./css/Style.css">
 </head>
 <body>
+    
+    <!-- Tabel Geplande lessen -->
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -99,6 +101,15 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
+    <!-- Tabel aantal leden per periode -->
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h3>Overzicht Aantal Leden Per Periode</h3>
+            </div>
+        </div>
+    </div>
+    
     <div class="row justify-content-center">
         <div class="col-10">
             <table class="table table-striped table-hover">
