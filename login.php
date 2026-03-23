@@ -1,25 +1,29 @@
 <?php
 session_start();
-
 $foutmelding = '';
 
 if (isset($_GET['error'])) {
-    $foutmelding = 'E-mail of wachtwoord is onjuist';
-}
-
-if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
-    echo "<p style='color:red;'>Uitloggen is mislukt. Probeer opnieuw.</p>";
+    if ($_GET['error'] == 'logout_failed') {
+        $foutmelding = 'Uitloggen is mislukt. Probeer opnieuw.';
+    } elseif ($_GET['error'] == 'not_logged_in') {
+        $foutmelding = 'Je bent niet ingelogd.';
+    } else {
+        $foutmelding = 'E-mail of wachtwoord is onjuist.';
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - FitForFun</title>
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <div class="overlay"></div>
@@ -29,8 +33,8 @@ if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
             <h1>FITFOR<span>FUN</span></h1>
             <p class="subtitle">Log in op je account</p>
 
-            <?php if (!empty($foutmelding)) : ?>
-                <p class="error-message"><?php echo $foutmelding; ?></p>
+            <?php if (!empty($foutmelding)): ?>
+                <p style="color:red;"><?php echo $foutmelding; ?></p>
             <?php endif; ?>
 
             <form action="login_process.php" method="POST">
@@ -52,4 +56,5 @@ if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
     </div>
 
 </body>
+
 </html>
