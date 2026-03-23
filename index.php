@@ -26,7 +26,7 @@ session_start();
         <span class="welcome-text">
             Hallo, <?php echo $_SESSION['voornaam']; ?>
         </span>
-        <a href="logout.php" class="btn-login">Logout</a>
+        <a href="logout.php" class="btn-login">Uitloggen</a>
     <?php else : ?>
         <a href="#" class="btn-registreer">Registreren</a>
         <a href="login.php" class="btn-login">Login</a>

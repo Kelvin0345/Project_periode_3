@@ -6,6 +6,10 @@ $foutmelding = '';
 if (isset($_GET['error'])) {
     $foutmelding = 'E-mail of wachtwoord is onjuist';
 }
+
+if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
+    echo "<p style='color:red;'>Uitloggen is mislukt. Probeer opnieuw.</p>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
