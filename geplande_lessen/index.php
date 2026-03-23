@@ -170,6 +170,21 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <div class="footer-logo">FitFor<span>Fun</span></div>
+            <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
+            <div class="footer-links">
+                <a href="./geplande_lessen/index.php">geplande lessen</a>
+                <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
+                <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
+                <a href="#">Privacy</a>
+                <a href="#">Vacaturen</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
             crossorigin="anonymous">
