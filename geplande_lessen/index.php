@@ -12,7 +12,7 @@ $dsn = "mysql:host=$dbHost;
 $pdo = new PDO($dsn, $dbUser,$dbPass);
 
 //tabel
-$sql = "SELECT GLN.Id
+$sqlLes = "SELECT GLN.Id
               ,GLN.Naam
               ,GLN.Prijs
               ,GLN.Datum
@@ -22,9 +22,14 @@ $sql = "SELECT GLN.Id
               ,GLN.Beschikbaarheid
         FROM LesOverzicht AS GLN
         ORDER BY GLN.ID ASC";
+$statementLes = $pdo->prepare($sqlLes);
+$statementLes->execute();
+$lesResult = $statementLes->fetchAll(PDO::FETCH_OBJ);
 
 
-$sql = "SELECT  OVALPP.Id
+
+
+$sqlLeden = "SELECT OVALPP.Id
               ,OVALPP.PeriodeStart  
               ,OVALPP.PeriodeEind
               ,OVALPP.AantalNieuweLeden
@@ -35,16 +40,13 @@ $sql = "SELECT  OVALPP.Id
 
 
 
-$statement = $pdo->prepare($sql);
+$statementLes = $pdo->prepare($sqlLes);
+$statementLes->execute();
+$lesResult = $statementLes->fetchAll(PDO::FETCH_OBJ);
 
-//uitvoeren
-
-$statement->execute();
-
-
-//Array
-
-$result = $statement->fetchAll(PDO::FETCH_OBJ);
+$statementLeden = $pdo->prepare($sqlLeden);
+$statementLeden->execute();
+$ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
 
 //data selecteren
 
@@ -87,7 +89,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <th>Beschikbaarheid</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $LesOverzicht):?>
+                    <?php foreach ($Lesresult as $LesOverzicht):?>
                         <tr>
                             <td><?= $LesOverzicht->Naam; ?></td>
                             <td><?= $LesOverzicht->Prijs; ?></td>
@@ -114,7 +116,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <th>Totaalaantalleden</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $OverzichtAantalLedenPerPeriode):?>
+                    <?php foreach ($LedenResult as $OverzichtAantalLedenPerPeriode):?>
                         <tr>
                             <td><?= $OverzichtAantalLedenPerPeriode->PeriodeStart; ?></td>
                             <td><?= $OverzichtAantalLedenPerPeriode->PeriodeEind; ?></td>
