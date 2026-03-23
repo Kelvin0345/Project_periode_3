@@ -156,3 +156,50 @@
             h3 { font-size: 24px; }
             body { padding-top: 100px; }
         }
+
+        .footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 50px 80px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.footer-logo span {
+    color: #043878;
+}
+
+.footer p {
+    font-size: 13px;
+    color: #666666;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #888888;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #043878;
+}
