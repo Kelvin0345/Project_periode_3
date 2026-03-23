@@ -78,18 +78,36 @@ VALUES
     ,('Aysar', 10.00, '2026-03-17', '19:00:00', 4, 9, 'Ingepland');
 
 
+CREATE TABLE OverzichtAantalLedenPerPeriode 
+(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    PeriodeStart DATE NOT NULL,
+    PeriodeEind DATE NOT NULL,
+    AantalNieuweLeden INT NOT NULL DEFAULT 0,
+    AantalVertrokkenLeden INT NOT NULL DEFAULT 0,
+    TotaalAantalLeden INT NOT NULL DEFAULT 0,
+    IsActief           BIT                 NOT NULL             DEFAULT 1   COMMENT 'Geeft aan of de persoon actief is (1 = Ja, 0 = Nee)', 
+    Opmerking VARCHAR(255) NULL
+      ,DatumAangemaakt     DATETIME(6)        NOT NULL			DEFAULT NOW(6)  COMMENT 'Datum en tijd van aanmaak'
+    ,DatumGewijzigd     DATETIME(6)         NOT NULL			DEFAULT NOW(6)  COMMENT 'Datum en tijd van laatste wijziging'
+) ENGINE=InnoDB;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO OverzichtAantalLedenPerPeriode
+(    PeriodeStart, 
+     PeriodeEind, 
+     AantalNieuweLeden, 
+     AantalVertrokkenLeden, 
+     TotaalAantalLeden)
+VALUES
+('2026-01-01', '2026-01-31', 12, 2, 100),
+('2026-02-01', '2026-02-28', 14, 1, 113),
+('2026-03-01', '2026-03-31', 15, 3, 125),
+('2026-04-01', '2026-04-30', 10, 5, 130),
+('2026-05-01', '2026-05-31', 8, 4, 134),
+('2026-06-01', '2026-06-30', 13, 2, 145),
+('2026-07-01', '2026-07-31', 9, 3, 151),
+('2026-08-01', '2026-08-31', 11, 4, 158),
+('2026-09-01', '2026-09-30', 7, 2, 163),
+('2026-10-01', '2026-10-31', 14, 5, 172),
+('2026-11-01', '2026-11-30', 10, 3, 179),
+('2026-12-01', '2026-12-31', 12, 4, 187);

@@ -24,6 +24,17 @@ $sql = "SELECT GLN.Id
         ORDER BY GLN.ID ASC";
 
 
+$sql = "SELECT  OVALPP.Id
+              ,OVALPP.PeriodeStart  
+              ,OVALPP.PeriodeEind
+              ,OVALPP.AantalNieuweLeden
+              ,OVALPP.AantalVertrokkenLeden
+              ,OVALPP.TotaalAantalLeden
+        FROM OverzichtAantalLedenPerPeriode AS OVALPP 
+        ORDER BY OVALPP.Id DESC";
+
+
+
 $statement = $pdo->prepare($sql);
 
 //uitvoeren
@@ -92,8 +103,30 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
-    <!-- Unhappy scenario -->
-    <!-- <h1>Geen Reserveringen</h1> -->
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <th>Periodstart</th>
+                    <th>Periodeind</th>
+                    <th>AantalNieuweleden</th>
+                    <th>AantalVertrokkenLeden</th>
+                    <th>Totaalaantalleden</th>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $OverzichtAantalLedenPerPeriode):?>
+                        <tr>
+                            <td><?= $OverzichtAantalLedenPerPeriode->PeriodeStart; ?></td>
+                            <td><?= $OverzichtAantalLedenPerPeriode->PeriodeEind; ?></td>
+                            <td><?= $OverzichtAantalLedenPerPeriode->AantalNieuweLeden; ?></td>
+                            <td><?= $OverzichtAantalLedenPerPeriode->AantalVertrokkenLeden; ?></td>
+                            <td><?= $OverzichtAantalLedenPerPeriode->TotaalAantalLeden; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
