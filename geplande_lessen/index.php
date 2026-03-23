@@ -1,6 +1,6 @@
 <?php
 
-
+// config include
 include ('config/config.php');
 //host
 $dsn = "mysql:host=$dbHost;
@@ -57,7 +57,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
 
 //var_dump($result);
 
-?>
+?> 
 
 
 <!DOCTYPE html>
@@ -89,14 +89,6 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </nav>
    
-
-
-
-
-
-
-
-
 
     <!-- Tabel Geplande lessen -->
     <div class="container mt-3">
@@ -132,7 +124,6 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                     <?php endforeach; ?>
                 </tbody>
         </table>
-        
     </div>
 
     <!-- Tabel aantal leden per periode -->
