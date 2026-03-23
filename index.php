@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -13,15 +16,22 @@
     <nav class="navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
         <ul class="nav-links">
-            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/index.php" class="active">Home</a></li>
             <li><a href="/Lessen.html">Lessen</a></li>
             <li><a href="#vacatures">Vacaturen</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="nav-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="login.php" class="btn-login">Login</a>
-        </div>
+<div class="nav-auth">
+    <?php if (isset($_SESSION['is_ingelogd']) && $_SESSION['is_ingelogd'] == true) : ?>
+        <span class="welcome-text">
+            Hallo, <?php echo $_SESSION['voornaam']; ?>
+        </span>
+        <a href="logout.php" class="btn-login">Logout</a>
+    <?php else : ?>
+        <a href="#" class="btn-registreer">Registreren</a>
+        <a href="login.php" class="btn-login">Login</a>
+    <?php endif; ?>
+</div>
     </nav>
 
     <!-- HERO SECTION -->
@@ -62,19 +72,19 @@
     </section>
 
     <!-- SOCIAL MEDIA KNOPPEN -->
-<div class="social-float">
-    <a href="#" class="social-btn x-btn">
-        <img src="img/x.png" alt="X">
-    </a>
+    <div class="social-float">
+        <a href="#" class="social-btn x-btn">
+            <img src="img/x.png" alt="X">
+        </a>
 
-    <a href="#" class="social-btn fb-btn">
-        <img src="img/fb.png" alt="Facebook">
-    </a>
+        <a href="#" class="social-btn fb-btn">
+            <img src="img/fb.png" alt="Facebook">
+        </a>
 
-    <a href="#" class="social-btn ig-btn">
-        <img src="img/iglogo.png" alt="Instagram">
-    </a>
-</div>
+        <a href="#" class="social-btn ig-btn">
+            <img src="img/iglogo.png" alt="Instagram">
+        </a>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer" id="contact">
@@ -82,8 +92,10 @@
             <div class="footer-logo">FitFor<span>Fun</span></div>
             <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
             <div class="footer-links">
+                <a href="./geplande_lessen/index.php">geplande lessen</a>
                 <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
-                <a href="/geplande_lessen/index.php">Geplande lessen</a>
+                <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
+                <a href="#">Privacy</a>
                 <a href="#">Vacaturen</a>
             </div>
         </div>

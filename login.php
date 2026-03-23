@@ -1,7 +1,12 @@
 <?php
 session_start();
-?>
 
+$foutmelding = '';
+
+if (isset($_GET['error'])) {
+    $foutmelding = 'E-mail of wachtwoord is onjuist';
+}
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -20,21 +25,25 @@ session_start();
             <h1>FITFOR<span>FUN</span></h1>
             <p class="subtitle">Log in op je account</p>
 
+            <?php if (!empty($foutmelding)) : ?>
+                <p class="error-message"><?php echo $foutmelding; ?></p>
+            <?php endif; ?>
+
             <form action="login_process.php" method="POST">
                 <div class="input-group">
                     <label for="email">E-mailadres</label>
-                    <input type="text" name="email" id="email" placeholder="Vul je e-mailadres in" required>
+                    <input type="email" name="email" id="email" required>
                 </div>
 
                 <div class="input-group">
                     <label for="password">Wachtwoord</label>
-                    <input type="password" name="password" id="password" placeholder="Vul je wachtwoord in" required>
+                    <input type="password" name="password" id="password" required>
                 </div>
 
                 <button type="submit" class="btn-login">Login</button>
             </form>
 
-            <a href="index.html" class="back-link">Terug naar home</a>
+            <a href="index.php" class="back-link">Terug naar home</a>
         </div>
     </div>
 
