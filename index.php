@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -13,15 +16,22 @@
     <nav class="navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
         <ul class="nav-links">
-            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/index.php" class="active">Home</a></li>
             <li><a href="/Lessen.html">Lessen</a></li>
             <li><a href="#vacatures">Vacaturen</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="nav-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="#" class="btn-login">Login</a>
-        </div>
+<div class="nav-auth">
+    <?php if (isset($_SESSION['is_ingelogd']) && $_SESSION['is_ingelogd'] == true) : ?>
+        <span class="welcome-text">
+            Hallo, <?php echo $_SESSION['voornaam']; ?>
+        </span>
+        <a href="logout.php" class="btn-login">Uitloggen</a>
+    <?php else : ?>
+        <a href="#" class="btn-registreer">Registreren</a>
+        <a href="login.php" class="btn-login">Login</a>
+    <?php endif; ?>
+</div>
     </nav>
 
     <!-- HERO SECTION -->
@@ -35,7 +45,7 @@
                 Jouw transformatie begint vandaag. Train harder, leef beter.
             </p>
             <div class="hero-buttons">
-                <a href="#lessen" class="btn-primary">Bekijk lessen</a>
+                <a href="/Lessen.html" class="btn-primary">Bekijk lessen</a>
                 <a href="#contact" class="btn-secondary">Meer info</a>
             </div>
         </div>

@@ -112,9 +112,9 @@ body {
     background-color: #0d0d0d;
 }
 
-/* Wordt overschreven door de specifiekere versie in de tabel sectie */
 .medewerkers-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-label {
@@ -142,47 +142,10 @@ body {
 /* ===========================
    TABEL (index.php)
 =========================== */
-
-/* Header rij: titel links, knop rechts */
-.medewerkers-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Knop naar create pagina */
-.btn-nieuwe-mdw {
-    text-decoration: none;
-    background-color: #043878;
-    color: #ffffff;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-    /* Zorgt dat de knop onderaan de titel uitgelijnd is */
-    margin-bottom: 4px;
-}
-
-.btn-nieuwe-mdw:hover {
-    background-color: #02244d;
-    transform: translateY(-2px);
-    color: #ffffff;
-}
-
 .tabel-wrapper {
     background-color: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 10px;
-    /* Tabel vult de volledige breedte van de pagina container */
     overflow: hidden;
     animation: fadeInUp 0.9s ease forwards;
 }
@@ -197,7 +160,7 @@ body {
 }
 
 .medewerkers-tabel thead th {
-    color: #000000;
+    color: #ffffff;
     font-family: 'Barlow', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -318,6 +281,7 @@ body {
     padding: 40px;
     max-width: 700px;
     animation: fadeInUp 0.9s ease forwards;
+    margin: 0 auto;
 }
 
 /* Elke label + input combinatie */
