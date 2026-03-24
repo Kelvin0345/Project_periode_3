@@ -1,11 +1,11 @@
 <?php
-session_start();
+session_start(); //Start een sessie en sessies gebruik je om gegevens van de ingelogde gebruiker te bewaren
 
 require_once 'account overzicht/config/config.php'; //Haalt de database instellingen op zoals host, database naam, gebruiker en wachtwoord
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {  //Controleert of het formulier is verstuurd POST betekent dat de gebruiker data heeft verzonden via het formulier
+    $email = $_POST['email']; //Pakt de ingevulde email uit het formulier
+    $password = $_POST['password']; //Pakt de ingevulde wachtwoord uit het formulier
 
     try {
         $dsn = "mysql:host=$dbHost;dbname=$dbName;charset=UTF8";
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $sql = "SELECT * FROM accountenoverzicht 
                 WHERE Email = :email 
-                AND Isactief = 1";
+                AND Isactief = 1"; //Zoekt een account met hetzelfde emailadres en kijkt ook of het account actief is
                 
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
