@@ -202,9 +202,9 @@
 
   <nav>
     <div class="nav-left">
-      <a href="#" class="nav-link">Home</a>
+      <a href="../index.php" class="nav-link">Home</a>
       <a href="#" class="nav-link">Informatie</a>
-      <a href="#" class="nav-link">Lessen</a>
+      <a href="../lessen.html" class="nav-link">Lessen</a>
       <a href="#" class="nav-link">Contact</a>
     </div>
     <div class="nav-right">
