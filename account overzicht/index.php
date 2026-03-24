@@ -20,18 +20,6 @@ if(!isset($_SESSION['users'])){
 
 $users = &$_SESSION['users'];
 
-// Gebruiker toevoegen
-if(isset($_POST['add_user'])){
-    $users[] = [
-        'username' => $_POST['username'],
-        'email' => $_POST['email'],
-        'phone' => $_POST['phone'],
-        'role' => $_POST['role'],
-        'status' => $_POST['status'],
-        'joined' => date('M d, Y')
-    ];
-}
-
 // Gebruiker aanpassen
 if(isset($_POST['update_user'])){
     $index = $_POST['index'];
@@ -56,205 +44,222 @@ if(isset($_GET['edit'])){
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account Overzicht</title>
+<style>
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Header */
+.header {
+    background-color: #2563eb;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header p {
+    margin: 5px 0 0;
+}
+
+/* Knop */
+.button {
+    background-color: white;
+    color: #2563eb;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Statistieken */
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stats {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 200px;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #eff6ff;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+tr {
+    border-top: 1px solid #e5e7eb;
+}
+
+.status-actief {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inactief {
+    color: red;
+    font-weight: bold;
+}
+
+.role {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.edit-button {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Edit formulier */
+.edit-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.edit-form input, .edit-form select, .edit-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #93c5fd;
+}
+
+.edit-form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+}
+</style>
 </head>
 
-<body bgcolor="#f5f6fa" style="font-family: system-ui, sans-serif; padding:30px;">
+<body>
 
-<table bgcolor="#eff6ff" border="2" bordercolor="#3b82f6" cellpadding="15" width="100%">
-<tr>
-<td>
-
-<h1 style="margin:0; color:#1e3a8a;">Account Overzicht</h1>
-
-<div style="color:#6b7280;">Overzicht van alle accounts</div>
-
-</td>
-</tr>
-</table>
-
-<br>
-// dit is de knop om een nieuw account toe te voegen,
-// deze linkt naar create.php waar het formulier staat om een nieuw account aan te maken.
-<?php if($error): ?>
-
-<div style="background:#fee2e2; color:#b91c1c; padding:20px; border-radius:10px; border:1px solid #fca5a5;">
-
-<b>Foutmelding</b><br><br>
-
-Kan het account overzicht niet laden omdat er geen verbinding kan worden gemaakt met de database.  
-Probeer het later opnieuw.
-
+<!-- Header + knop -->
+<div class="header">
+    <h1>Account Overzicht</h1>
+    <p>Overzicht van alle accounts</p>
+    <a href="create.php"><button class="button">+ Nieuw account toevoegen</button></a>
 </div>
 
-<?php else: ?>
+<?php if($error): ?>
+<div style="background:#fee2e2; color:#b91c1c; padding:20px; border-radius:10px; border:1px solid #fca5a5; margin-bottom:20px;">
+    <b>Foutmelding</b><br>
+    Kan het account overzicht niet laden.
+</div>
+<?php endif; ?>
 
-<table width="100%" cellspacing="15">
+<!-- Statistieken -->
+<div class="stats-container">
+    <div class="stats">
+        <b>Aantal gebruikers</b><br>
+        <span style="font-size:24px;"><?= count($users) ?></span>
+    </div>
+    <div class="stats">
+        <b>Actieve gebruikers</b><br>
+        <span style="font-size:24px;">
+            <?php 
+            $active = 0;
+            foreach($users as $u){
+                if($u['status'] == "Actief") $active++;
+            }
+            echo $active;
+            ?>
+        </span>
+    </div>
+</div>
+
+<!-- Tabel accounts -->
+<table>
+<thead>
 <tr>
-
-<td>
-<table bgcolor="white" border="1" bordercolor="#dbeafe" cellpadding="15" width="100%">
-<tr>
-<td>
-
-<b style="color:#3b82f6;">Aantal gebruikers</b><br>
-
-<span style="font-size:24px; color:#1e40af;">
-<?= count($users) ?>
-</span>
-
-</td>
-</tr>
-</table>
-</td>
-
-<td>
-<table bgcolor="white" border="1" bordercolor="#dbeafe" cellpadding="15" width="100%">
-<tr>
-<td>
-
-<b style="color:#3b82f6;">Actieve gebruikers</b><br>
-
-<span style="font-size:24px; color:#1e40af;">
-<?php 
-$active = 0;
-foreach($users as $u){
-if($u['status'] == "Actief") $active++;
-}
-echo $active;
-?>
-</span>
-
-</td>
-</tr>
-</table>
-</td>
-
-</tr>
-</table>
-
-<br>
-// dit is de knop om een nieuw account toe te voegen,
-
-<table width="100%" border="1" bordercolor="#dbeafe" cellspacing="0" cellpadding="10" bgcolor="white">
-
-<thead bgcolor="#eff6ff">
-<tr>
-
-<th align="left" style="color:#1e3a8a;">Naam</th>
-
-<th align="left" style="color:#1e3a8a;">Contact</th>
-
-<th align="left" style="color:#1e3a8a;">Rol</th>
-
-<th align="left" style="color:#1e3a8a;">Status</th>
-
-<th align="left" style="color:#1e3a8a;">Lid sinds</th>
-
-<th align="left" style="color:#1e3a8a;">Manage</th>
-
+<th>Naam</th>
+<th>Contact</th>
+<th>Rol</th>
+<th>Status</th>
+<th>Lid sinds</th>
+<th>Manage</th>
 </tr>
 </thead>
-
 <tbody>
-
 <?php foreach($users as $index => $user): ?>
-
 <tr>
-
+<td><?= $user['username'] ?></td>
+<td><?= $user['email'] ?><br>Tel: <?= $user['phone'] ?></td>
+<td class="role"><?= $user['role'] ?></td>
 <td>
-<?= $user['username'] ?>
-</td>
-
-<td>
-<?= $user['email'] ?><br>
-Tel: <?= $user['phone'] ?>
-</td>
-
-<td>
-<b style="color:#2563eb;">
-<?= $user['role'] ?>
-</b>
-</td>
-
-<td>
-
 <?php if($user['status']=="Actief"){ ?>
-
-<b style="color:#16a34a;">Actief</b>
-
-<?php }else{ ?>
-
-<b style="color:#dc2626;">Inactief</b>
-
+<span class="status-actief">Actief</span>
+<?php } else { ?>
+<span class="status-inactief">Inactief</span>
 <?php } ?>
-
 </td>
-
-<td>
-<?= $user['joined'] ?>
-</td>
-
-<td>
-
-<a href="?edit=<?= $index ?>">
-
-<button style="background:#16a34a; color:white; border:none; padding:6px 10px; border-radius:6px;">
-Edit
-</button>
-
-</a>
-
-</td>
-
+<td><?= $user['joined'] ?></td>
+<td><a href="?edit=<?= $index ?>"><button class="edit-button">Edit</button></a></td>
 </tr>
-
 <?php endforeach; ?>
-
 </tbody>
 </table>
 
-<?php endif; ?>
-
+<!-- Edit formulier -->
 <?php if($editUser): ?>
-
-<br>
-
-<div style="background:white; padding:20px; border:1px solid #dbeafe; border-radius:10px;">
-
-<h3 style="color:#1e3a8a;">Gegevens aanpassen</h3>
-
+<div class="edit-form">
+<h3>Gegevens aanpassen</h3>
 <form method="POST">
-
 <input type="hidden" name="index" value="<?= $editIndex ?>">
-
-<input type="text" name="username" value="<?= $editUser['username'] ?>" required
-style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
-
-<input type="email" name="email" value="<?= $editUser['email'] ?>" required
-style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
-
-<input type="text" name="phone" value="<?= $editUser['phone'] ?>" required
-style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
-
-<select name="status"
-style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
-
+<input type="text" name="username" value="<?= $editUser['username'] ?>" required>
+<input type="email" name="email" value="<?= $editUser['email'] ?>" required>
+<input type="text" name="phone" value="<?= $editUser['phone'] ?>" required>
+<select name="status">
 <option value="Actief" <?= $editUser['status']=="Actief"?'selected':'' ?>>Actief</option>
-
 <option value="Inactief" <?= $editUser['status']=="Inactief"?'selected':'' ?>>Inactief</option>
-
 </select>
-
-<button type="submit" name="update_user"
-style="background:#2563eb; color:white; border:none; padding:10px 15px; border-radius:8px;">
-Opslaan
-</button>
-
+<button type="submit" name="update_user">Opslaan</button>
 </form>
-
 </div>
-
 <?php endif; ?>
 
 </body>

@@ -1,0 +1,190 @@
+body{
+    font-family:Arial;
+    background:#f2f6ff;
+    margin:0;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    margin-top:20px;
+}
+
+/* FILTER BAR (zoekbalk rechts) */
+.filter-bar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin-bottom:20px;
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.filter-right input[type=text]{
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #1e5eff; /* blauwe rand */
+    width:260px;
+    background:#1e5eff;       /* blauwe achtergrond */
+    color:white;              /* witte tekst */
+}
+
+.filter-right input[type=text]::placeholder{
+    color:#dbe6ff;            /* lichte placeholder kleur */
+}
+
+/* UITKLAPBARE FILTERBOX RECHTS */
+.price-filter{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom:25px;
+
+    /* DIT ZET HEM RECHTS */
+    width:300px;
+    margin-left:auto;
+}
+
+.price-header{
+    display:flex;
+    justify-content:space-between;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:18px;
+    color:#1e5eff;
+}
+
+.price-content{
+    display:none;
+    margin-top:15px;
+}
+
+.price-content label{
+    font-weight:bold;
+    margin-top:10px;
+    display:block;
+}
+
+.price-content input{
+    width:200px;
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    margin-bottom:10px;
+}
+
+.price-content h4{
+    margin-top:10px;
+    color:#1e5eff;
+}
+
+.sort-options{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+}
+
+.filter-btn{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#1e5eff;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* GRID */
+.lessons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-image{
+    height:140px;
+    background:#dbe6ff;
+}
+
+.card-title{
+    padding:20px;
+    font-size:22px;
+    color:#1e5eff;
+    font-weight:bold;
+}
+
+.card-body{
+    padding:20px;
+    font-size:14px;
+}
+
+.card-body ul{
+    padding:0;
+}
+
+.card-body li{
+    list-style:none;
+    margin-bottom:8px;
+}
+
+.card-body li:before{
+    content:"✔ ";
+    color:#1e5eff;
+    font-weight:bold;
+}
+
+.price-box{
+    background:#f7f7f7;
+    padding:15px;
+    margin-top:15px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.button{
+    margin-top:20px;
+    background:#1e5eff;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.error{
+    color:red;
+    font-weight:bold;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .lessons{
+        grid-template-columns:1fr;
+    }
+    .filter-bar{
+        justify-content:center;
+    }
+    .filter-right input[type=text]{
+        width:100%;
+    }
+    .price-filter{
+        margin-left:0;
+        width:100%;
+    }
+}

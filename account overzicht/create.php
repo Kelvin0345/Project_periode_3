@@ -1,151 +1,104 @@
-```php
 <?php
-include('config/config.php');
+session_start();
 
-$dsn = "mysql:host=$dbHost;dbname=$dbName;charset=utf8";
-$pdo = new PDO($dsn, $dbUser, $dbPass, [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
+// Foutmelding altijd eerst definieren
+$error = "";
 
-$display = 'none';
+// Check of formulier verzonden is
+if(isset($_POST['create_account'])){
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $role = $_POST['role'];
+    $status = $_POST['status'];
 
-    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // Validatie (unhappy scenario)
+    if(empty($username) || empty($email) || empty($phone)){
+        $error = "Het account kan niet worden aangemaakt";
+    } 
+    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error = "Ongeldig emailadres";
+    }
+    elseif(strlen($phone) < 8){
+        $error = "Telefoonnummer is te kort";
+    }
+    else {
 
-    $sql = "INSERT INTO accountenoverzicht
-    (
-        Voornaam,
-        Tussenvoegsel,
-        Achternaam,
-        Relatienummer,
-        Mobiel,
-        Email,
-        Isactief,
-        Opmerking
-    )
-    VALUES
-    (
-        :voornaam,
-        :tussenvoegsel,
-        :achternaam,
-        :relatienummer,
-        :mobiel,
-        :email,
-        :isactief,
-        :opmerking
-    )";
+        // Zorg dat users array bestaat
+        if(!isset($_SESSION['users'])){
+            $_SESSION['users'] = [];
+        }
 
-    $statement = $pdo->prepare($sql);
+        // Account toevoegen
+        $_SESSION['users'][] = [
+            'username' => $username,
+            'email' => $email,
+            'phone' => $phone,
+            'role' => $role,
+            'status' => $status,
+            'joined' => date('M d, Y')
+        ];
 
-    $statement->bindValue(':voornaam', $_POST['voornaam']);
-    $statement->bindValue(':tussenvoegsel', $_POST['tussenvoegsel']);
-    $statement->bindValue(':achternaam', $_POST['achternaam']);
-    $statement->bindValue(':relatienummer', $_POST['relatienummer'], PDO::PARAM_INT);
-    $statement->bindValue(':mobiel', $_POST['mobiel']);
-    $statement->bindValue(':email', $_POST['email']);
-    $statement->bindValue(':isactief', $_POST['isactief'], PDO::PARAM_INT);
-    $statement->bindValue(':opmerking', $_POST['opmerking']);
-
-    $statement->execute();
-
-    $display = 'flex';
-    header('Refresh:3; index.php');
+        // Redirect naar overzicht
+        header("Location: index.php");
+        exit();
+    }
 }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Account toevoegen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Nieuw Account</title>
 </head>
 
-<body>
+<body bgcolor="#f5f6fa" style="font-family: system-ui, sans-serif; padding:30px;">
 
-<div class="container mt-3">
-
-    <div class="row justify-content-center" style="display:<?= $display ?? 'none'; ?>">
-        <div class="col-6">
-            <div class="alert alert-success text-center">
-                Account succesvol toegevoegd. U wordt teruggestuurd naar de indexpagina.
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <h3 class="text-primary">Nieuw account toevoegen</h3>
-        </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-6">
-
-            <form action="create.php" method="POST">
-
-                <div class="mb-3">
-                    <label class="form-label">Voornaam</label>
-                    <input name="voornaam" type="text" class="form-control"
-                        value="<?= $_POST['voornaam'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Tussenvoegsel</label>
-                    <input name="tussenvoegsel" type="text" class="form-control"
-                        value="<?= $_POST['tussenvoegsel'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Achternaam</label>
-                    <input name="achternaam" type="text" class="form-control"
-                        value="<?= $_POST['achternaam'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Relatienummer</label>
-                    <input name="relatienummer" type="number" class="form-control"
-                        value="<?= $_POST['relatienummer'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Mobiel</label>
-                    <input name="mobiel" type="text" class="form-control"
-                        value="<?= $_POST['mobiel'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control"
-                        value="<?= $_POST['email'] ?? '' ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Actief</label>
-                    <select name="isactief" class="form-control">
-                        <option value="1">Ja</option>
-                        <option value="0">Nee</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Opmerking</label>
-                    <textarea name="opmerking" class="form-control"><?= $_POST['opmerking'] ?? '' ?></textarea>
-                </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">Opslaan</button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-
+<div style="background:#2563eb; color:white; padding:20px; border-radius:12px; margin-bottom:20px;">
+    <h1 style="margin:0;">Nieuw account toevoegen</h1>
 </div>
+
+<?php if(!empty($error)): ?>
+<div style="background:#fee2e2; color:#b91c1c; padding:20px; border-radius:10px; margin-bottom:15px;">
+    <b>Foutmelding:</b><br>
+    <?= $error ?>
+</div>
+<?php endif; ?>
+
+<form method="POST" style="background:white; padding:20px; border-radius:10px; max-width:500px;">
+
+<input type="text" name="username" placeholder="Naam"
+style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;" required>
+
+<input type="email" name="email" placeholder="Email"
+style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;" required>
+
+<input type="text" name="phone" placeholder="Telefoonnummer"
+style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;" required>
+
+<select name="role"
+style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
+<option value="User">User</option>
+<option value="Admin">Admin</option>
+</select>
+
+<select name="status"
+style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #93c5fd; border-radius:8px;">
+<option value="Actief">Actief</option>
+<option value="Inactief">Inactief</option>
+</select>
+
+<button type="submit" name="create_account"
+style="background:#2563eb; color:white; padding:10px 15px; border:none; border-radius:8px; width:100%; margin-top:10px;">
+Account aanmaken
+</button>
+
+</form>
+
+<br>
+<a href="index.php" style="color:#2563eb;">← Terug naar overzicht</a>
 
 </body>
 </html>
-```
