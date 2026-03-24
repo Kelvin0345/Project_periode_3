@@ -51,7 +51,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </ul>
         <div class="nav-auth">
             <a href="#" class="btn-registreer">Registreren</a>
-            <a href="#" class="btn-login">Login</a>
+            <a href="../login.php" class="btn-login">Login</a>
         </div>
     </nav>
 
