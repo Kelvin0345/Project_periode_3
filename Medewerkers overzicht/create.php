@@ -30,12 +30,17 @@ if (isset($_POST['submit'])) {
 
     $statement = $pdo->prepare($sql);
 
+$medewerkerSoort = $_POST['medewerkerSoort'] ?? '';
+
+if ($medewerkerSoort == '') {
+    die('Kies een medewerkersoort.');
+}
     $statement->bindValue(':id', $_POST['idMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':voornaam', $_POST['voornaamMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':tussenvoegsel', $_POST['tussenvoegselMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':achternaam', $_POST['achternaamMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':nummer', $_POST['nummerMedewerker'], PDO::PARAM_STR);
-    $statement->bindValue(':medewerkersoort', $_POST['medewerkerSoort'], PDO::PARAM_STR);
+    $statement->bindValue(':medewerkersoort', $medewerkerSoort, PDO::PARAM_STR);
 
     $statement->execute();
 
@@ -148,7 +153,7 @@ if (isset($_POST['submit'])) {
                 <div class="form-rij">
                     <label for="InputMedewerkerSoort">Medewerkersoort</label>
                     <!-- Dropdown in plaats van vrij tekstveld, zodat je alleen geldige waarden kan kiezen -->
-                    <select name="medewerkerSoort" id="InputMedewerkerSoort">
+                    <select name="medewerkerSoort" id="InputMedewerkerSoort" required>
                         <option value="" disabled selected>Kies een soort...</option>
                         <option value="Manager"         <?= (($_POST['medewerkerSoort'] ?? '') === 'Manager')         ? 'selected' : '' ?>>Manager</option>
                         <option value="Beheerder"       <?= (($_POST['medewerkerSoort'] ?? '') === 'Beheerder')       ? 'selected' : '' ?>>Beheerder</option>

@@ -35,7 +35,7 @@ USE accountenoverzicht;
 
 CREATE TABLE accountenoverzicht
 (
-    Id                  INT             NOT NULL                            COMMENT 'Primary key van tabel Persoon'
+    Id                  INT            NOT NULL       AUTO_INCREMENT       COMMENT 'Primary key van tabel Persoon'
 ,Voornaam              VARCHAR(50)     NOT NULL                            COMMENT 'Voornaam van de persoon'
 ,Tussenvoegsel         VARCHAR(10)     NULL                                COMMENT 'Tussenvoegsel van de persoon'
 ,Achternaam            VARCHAR(50)     NOT NULL                            COMMENT 'Achternaam van de persoon'
