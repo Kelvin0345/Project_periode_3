@@ -1,7 +1,7 @@
 <?php
-
+// include
 include ('config/config.php');
-
+// dsn
 $dsn = "mysql:host=$dbHost;
         dbname=$dbName;
         charset=UTF8";
@@ -97,7 +97,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
       
 
 
-
+        <!-- tabel -->
         <div class="tabel-wrapper">
             <table class="table table-striped table-hover reserveringen-tabel">
                 <thead>
