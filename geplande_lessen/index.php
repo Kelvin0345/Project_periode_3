@@ -74,7 +74,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
 </head>
 <body>
     
-    <nav class="navbar">
+    <nav class="navbar"> <!-- hier is de nav bar -->
         <div class="nav-logo">FitFor<span>FUN</span></div>
             <ul class="nav-links">
                 <li><a href="/index.php">Home</a></li>
@@ -83,7 +83,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-        <div class="nav-auth">
+        <div class="nav-auth"> <!-- login en registeer knoppen -->
             <a href="#" class="btn-registreer">Registreren</a>
             <a href="../login.php" class="btn-login">Login</a>
         </div>
