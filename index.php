@@ -109,7 +109,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
                 <a href="./account overzicht/index.php">Account overzicht</a>
                 <a href="./lessen overzicht/index.php">Lessen overzicht</a>
                 <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
-                <a href="#">Privacy</a>
+                <a href="./nieuwe lid toevoegen/Index.php">Nieuwe lid toevoegen</a>
                 <a href="#">Vacaturen</a>
             </div>
         </div>
