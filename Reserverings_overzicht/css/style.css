@@ -1,4 +1,9 @@
-/* Jouw Custom CSS */
+
+
+
+/* ===========================
+   RESET & BASIS
+=========================== */
 * {
     margin: 0;
     padding: 0;
@@ -14,11 +19,12 @@ body {
     background-color: #0d0d0d;
     color: #f0f0f0;
     overflow-y: auto;
-    padding-top: 120px;
-    /* Ruimte voor de fixed navbar */
+    
 }
 
-/* Navbar */
+/* ===========================
+   NAVBAR
+=========================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -28,9 +34,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 18px 60px;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-logo {
@@ -38,7 +44,6 @@ body {
     font-size: 28px;
     letter-spacing: 3px;
     color: #ffffff;
-    text-decoration: none;
 }
 
 .nav-logo span {
@@ -49,7 +54,6 @@ body {
     list-style: none;
     display: flex;
     gap: 36px;
-    margin: 0;
 }
 
 .nav-links a {
@@ -62,7 +66,8 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: #043878;
 }
 
@@ -102,7 +107,105 @@ body {
     background-color: #02244d;
 }
 
-/* Tabel & Content Styling */
+/* ===========================
+   SOCIAL FLOAT KNOPPEN
+=========================== */
+.social-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 99;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.social-btn img {
+    display: block;
+    object-fit: contain;
+}
+
+/* per icoon apart finetunen */
+.x-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+.fb-btn img {
+    width: 70px;
+    height: 70px;
+}
+
+.ig-btn img {
+    width: 50px;
+    height: 50px;
+}
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 50px 80px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.footer-logo span {
+    color: #043878;
+}
+
+.footer p {
+    font-size: 13px;
+    color: #666666;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #888888;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #043878;
+}
+
+
+/* TABEL STYLING */
 .reserveringen-pagina {
     min-height: 80vh;
     padding: 120px 80px 80px;
@@ -177,8 +280,9 @@ body {
     border: none;
 }
 
-/* Mobiel */
+
 @media (max-width: 768px) {
+
     .navbar {
         padding: 15px 20px;
     }
@@ -187,58 +291,12 @@ body {
         display: none;
     }
 
-    h3 {
-        font-size: 24px;
+    .reserveringen-titel {
+        font-size: 40px;
     }
 
-    body {
-        padding-top: 100px;
+    .reserveringen-pagina {
+        padding: 100px 20px 40px;
     }
 }
 
-.footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 50px 80px;
-}
-
-.footer-inner {
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    letter-spacing: 3px;
-    color: #ffffff;
-}
-
-.footer-logo span {
-    color: #043878;
-}
-
-.footer p {
-    font-size: 13px;
-    color: #666666;
-}
-
-.footer-links {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    font-size: 13px;
-    color: #888888;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #043878;
-}
