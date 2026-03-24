@@ -34,7 +34,7 @@ if (isset($_GET['error'])) {
             <p class="subtitle">Log in op je account</p>
 
             <?php if (!empty($foutmelding)): ?>
-                <p style="color:red;"><?php echo $foutmelding; ?></p>
+                <p class="error-message"><?php echo $foutmelding; ?></p>
             <?php endif; ?>
 
             <form action="login_process.php" method="POST">
