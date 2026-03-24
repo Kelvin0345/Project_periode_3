@@ -104,7 +104,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
             <div class="footer-logo">FitFor<span>Fun</span></div>
             <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
             <div class="footer-links">
-                <a href="./geplande_lessen/index.php">geplande lessen</a>
+                <a href="./geplande_lessen/index.php">Geplande lessen</a>
                 <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
                 <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
                 <a href="#">Privacy</a>

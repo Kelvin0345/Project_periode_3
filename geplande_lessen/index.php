@@ -77,7 +77,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
     <nav class="navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
             <ul class="nav-links">
-                <li><a href="/index.html">Home</a></li>
+                <li><a href="/index.php">Home</a></li>
                 <li><a href="/Lessen.html">Lessen</a></li>
                 <li><a href="#vacatures">Vacaturen</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -165,7 +165,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
             <div class="footer-logo">FitFor<span>Fun</span></div>
             <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
             <div class="footer-links">
-                <a href="./geplande_lessen/index.php">geplande lessen</a>
+                <a href="./geplande_lessen/index.php">Geplande lessen</a>
                 <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
                 <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
                 <a href="#">Privacy</a>
