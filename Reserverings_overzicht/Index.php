@@ -136,7 +136,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             <div class="footer-links">
                 <a href="/geplande_lessen/index.php">Geplande lessen</a>
                 <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
-                <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
+                <a href="/Reserverings_overzicht/Index.php">Reserverings overzicht</a>
                 <a href="#">Privacy</a>
                 <a href="#">Vacaturen</a>
             </div>
