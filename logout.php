@@ -15,11 +15,11 @@ if (isset($_SESSION['is_ingelogd']) && $_SESSION['is_ingelogd'] == true) {
     session_unset();
     session_destroy();
 
-    header("Location: index.php");
+    header("Location: index.php"); // stuurt user terug naar index.php
     exit();
 
 } else {
-    header("Location: login.php?error=not_logged_in");
+    header("Location: login.php?error=not_logged_in"); // error melding voor uitloggen
     exit();
 }
 ?>

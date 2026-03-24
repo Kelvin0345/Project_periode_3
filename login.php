@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); //hier word een sessie gestart
 $foutmelding = '';
 
 if (isset($_GET['error'])) {
@@ -20,7 +20,7 @@ if (isset($_GET['error'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - FitForFun</title>
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" 
         rel="stylesheet">
 </head>
 

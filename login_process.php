@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once 'account overzicht/config/config.php';
+require_once 'account overzicht/config/config.php'; //Haalt de database instellingen op zoals host, database naam, gebruiker en wachtwoord
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
