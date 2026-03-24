@@ -162,10 +162,10 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
     <!-- FOOTER -->
     <footer class="footer" id="contact">
         <div class="footer-inner">
-            <div class="footer-logo">FitFor<span>Fun</span></div>
+            <div class="footer-logo">FitFor<span>Fun</span></div> <!--hier is de logo van de footer -->
             <p>© 2026 FitForFun Gym. Alle rechten voorbehouden.</p>
             <div class="footer-links">
-                <a href="./geplande_lessen/index.php">Geplande lessen</a>
+                <a href="/geplande_lessen/index.php">Geplande lessen</a>
                 <a href="/Medewerkers overzicht/index.php">Medewerkers overzicht</a>
                 <a href="./Reserverings_overzicht/Index.php">Reserverings overzicht</a>
                 <a href="#">Privacy</a>
