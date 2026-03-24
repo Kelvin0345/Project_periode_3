@@ -1,16 +1,23 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    session_unset();
+// Aan en uit Login unhappy scenario
+$forceError = false; // true = test, false = normaal
 
-    if (session_destroy()) {
-        header("Location: index.php");
-        exit();
-    } else {
-        header("Location: login.php?error=logout_failed");
+if (isset($_SESSION['is_ingelogd']) && $_SESSION['is_ingelogd'] == true) {
+
+    if ($forceError) {
+        header("Location: index.php?error=logout_failed");
         exit();
     }
+
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
+
+    header("Location: index.php");
+    exit();
+
 } else {
     header("Location: login.php?error=not_logged_in");
     exit();

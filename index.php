@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+$foutmelding = '';
+
+if (isset($_GET['error']) && $_GET['error'] == 'logout_failed') {
+    $foutmelding = 'Uitloggen is mislukt. Je bent nog steeds ingelogd.';
+}
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -32,7 +38,13 @@ session_start();
         <a href="login.php" class="btn-login">Login</a>
     <?php endif; ?>
 </div>
-    </nav>
+</nav>
+
+<?php if (!empty($foutmelding)) : ?>
+    <p style="color:red; text-align:center; margin:20px; font-weight:bold;">
+        <?php echo $foutmelding; ?>
+    </p>
+<?php endif; ?>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
