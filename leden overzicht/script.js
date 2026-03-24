@@ -39,7 +39,7 @@ function showMember(id){
 
 const member = members[id]
 
-// ✅ HAPPY SCENARIO
+// HAPPY SCENARIO
 if(member){
 
 document.getElementById("memberInfo").innerHTML = `
@@ -57,7 +57,7 @@ document.getElementById("memberPopup").style.display = "block";
 
 }
 
-// ❌ UNHAPPY SCENARIO
+//  UNHAPPY SCENARIO
 else{
 
 alert("Geen gegevens beschikbaar voor dit lid.");
