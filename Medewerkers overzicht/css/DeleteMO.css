@@ -1,0 +1,79 @@
+body {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.delete-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+.delete-card {
+    background: #1c1c1c;
+    border: 1px solid #2e2e2e;
+    border-radius: 12px;
+    padding: 48px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+}
+
+.delete-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(220, 53, 69, 0.15);
+    border: 2px solid #dc3545;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.delete-card h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.delete-card p {
+    color: #a0a0a0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.delete-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #4a90d9;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+.delete-btn {
+    display: inline-block;
+    background: #4a90d9;
+    color: #ffffff;
+    padding: 10px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #357abd;
+    color: #ffffff;
+    text-decoration: none;
+}

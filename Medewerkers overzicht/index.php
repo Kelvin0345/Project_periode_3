@@ -101,7 +101,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                                     <?= $medewerker->Medewerkersoort; ?>
                                 </span>
                             </td>
-                            <td class="verwijder-kolom">
+                            <td class="text-center">
                                 <a href="delete.php?id=<?= $medewerker->Id; ?>">
                                     <i class="bi bi-x-square text-danger"></i>
                                 </a>
