@@ -30,11 +30,11 @@ if (isset($_POST['submit'])) {
 
     $statement = $pdo->prepare($sql);
 
-$medewerkerSoort = $_POST['medewerkerSoort'] ?? '';
+    $medewerkerSoort = $_POST['medewerkerSoort'] ?? '';
 
-if ($medewerkerSoort == '') {
-    die('Kies een medewerkersoort.');
-}
+    if ($medewerkerSoort == '') {
+        die('Kies een medewerkersoort.');
+    }
     $statement->bindValue(':id', $_POST['idMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':voornaam', $_POST['voornaamMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':tussenvoegsel', $_POST['tussenvoegselMedewerker'], PDO::PARAM_STR);
@@ -52,16 +52,20 @@ if ($medewerkerSoort == '') {
 
 <!doctype html>
 <html lang="nl">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwe Medewerker – FitForFun</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/CreateMO.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -107,47 +111,32 @@ if ($medewerkerSoort == '') {
 
                 <div class="form-rij">
                     <label for="InputIdMedewerker">Medewerker ID</label>
-                    <input name="idMedewerker"
-                           placeholder="Bijv. 6"
-                           type="text"
-                           id="InputIdMedewerker"
-                           value="<?= $_POST['idMedewerker'] ?? '' ?>">
+                    <input name="idMedewerker" placeholder="Bijv. 6" type="text" id="InputIdMedewerker"
+                        value="<?= $_POST['idMedewerker'] ?? '' ?>">
                 </div>
 
                 <div class="form-rij">
                     <label for="InputVoorNaamMedewerker">Voornaam</label>
-                    <input name="voornaamMedewerker"
-                           placeholder="Bijv. Emma"
-                           type="text"
-                           id="InputVoorNaamMedewerker"
-                           value="<?= $_POST['voornaamMedewerker'] ?? '' ?>">
+                    <input name="voornaamMedewerker" placeholder="Bijv. Emma" type="text" id="InputVoorNaamMedewerker"
+                        value="<?= $_POST['voornaamMedewerker'] ?? '' ?>">
                 </div>
 
                 <div class="form-rij">
                     <label for="InputTussenvoegselMedewerker">Tussenvoegsel</label>
-                    <input name="tussenvoegselMedewerker"
-                           placeholder="Bijv. van der (optioneel)"
-                           type="text"
-                           id="InputTussenvoegselMedewerker"
-                           value="<?= $_POST['tussenvoegselMedewerker'] ?? '' ?>">
+                    <input name="tussenvoegselMedewerker" placeholder="Bijv. van der (optioneel)" type="text"
+                        id="InputTussenvoegselMedewerker" value="<?= $_POST['tussenvoegselMedewerker'] ?? '' ?>">
                 </div>
 
                 <div class="form-rij">
                     <label for="InputAchternaamMedewerker">Achternaam</label>
-                    <input name="achternaamMedewerker"
-                           placeholder="Bijv. Smit"
-                           type="text"
-                           id="InputAchternaamMedewerker"
-                           value="<?= $_POST['achternaamMedewerker'] ?? '' ?>">
+                    <input name="achternaamMedewerker" placeholder="Bijv. Smit" type="text"
+                        id="InputAchternaamMedewerker" value="<?= $_POST['achternaamMedewerker'] ?? '' ?>">
                 </div>
 
                 <div class="form-rij">
                     <label for="InputNummerMedewerker">Nummer</label>
-                    <input name="nummerMedewerker"
-                           placeholder="Bijv. 1006"
-                           type="text"
-                           id="InputNummerMedewerker"
-                           value="<?= $_POST['nummerMedewerker'] ?? '' ?>">
+                    <input name="nummerMedewerker" placeholder="Bijv. 1006" type="text" id="InputNummerMedewerker"
+                        value="<?= $_POST['nummerMedewerker'] ?? '' ?>">
                 </div>
 
                 <div class="form-rij">
@@ -155,9 +144,10 @@ if ($medewerkerSoort == '') {
                     <!-- Dropdown in plaats van vrij tekstveld, zodat je alleen geldige waarden kan kiezen -->
                     <select name="medewerkerSoort" id="InputMedewerkerSoort" required>
                         <option value="" disabled selected>Kies een soort...</option>
-                        <option value="Manager"         <?= (($_POST['medewerkerSoort'] ?? '') === 'Manager')         ? 'selected' : '' ?>>Manager</option>
-                        <option value="Beheerder"       <?= (($_POST['medewerkerSoort'] ?? '') === 'Beheerder')       ? 'selected' : '' ?>>Beheerder</option>
-                        <option value="Diskmedewerker"  <?= (($_POST['medewerkerSoort'] ?? '') === 'Diskmedewerker')  ? 'selected' : '' ?>>Diskmedewerker</option>
+                        <option value="Manager" <?= (($_POST['medewerkerSoort'] ?? '') === 'Manager') ? 'selected' : '' ?>>
+                            Manager</option>
+                        <option value="Beheerder" <?= (($_POST['medewerkerSoort'] ?? '') === 'Beheerder') ? 'selected' : '' ?>>Beheerder</option>
+                        <option value="Diskmedewerker" <?= (($_POST['medewerkerSoort'] ?? '') === 'Diskmedewerker') ? 'selected' : '' ?>>Diskmedewerker</option>
                     </select>
                 </div>
 
@@ -196,6 +186,9 @@ if ($medewerkerSoort == '') {
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
