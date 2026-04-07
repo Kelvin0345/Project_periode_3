@@ -48,7 +48,7 @@ if ($statement->rowCount() > 0) {
     $type = "success";
 } else {
     $melding = "Reservering bestaat niet meer.";
-    $type = "danger";
+    $type = "Onsuccessvol";
 }
 
 
@@ -80,7 +80,8 @@ header('Refresh: 3; url=index.php');
                     De gegevens zijn verwijderd. u wordt teruggestuurd naar de index-pagina.
                 </div>
 
-                <div class="alert alert-success text-center" role="alert">
+                <!-- onsuccesvol melding -->
+                <div class="alert alert-Onsuccessvol text-center" role="alert">
                     De gegevens zijn verwijderd. u wordt teruggestuurd naar de index-pagina.
                 </div>
             </div>
