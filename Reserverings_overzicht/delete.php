@@ -46,7 +46,10 @@ $statement->execute();
 if ($statement->rowCount() > 0) {
     $melding = "De reservering is verwijderd.";
     $type = "success";
-} 
+} else {
+    $melding = "Reservering bestaat niet meer.";
+    $type = "danger";
+}
 
 
 //stuur gebruiker terug naar index.php
@@ -72,6 +75,11 @@ header('Refresh: 3; url=index.php');
     <div class="container-mt-3">
         <div class="row-justify-content-center mt-3">
             <div class="col-10">
+                <!-- succes melding -->
+                <div class="alert alert-success text-center" role="alert">
+                    De gegevens zijn verwijderd. u wordt teruggestuurd naar de index-pagina.
+                </div>
+
                 <div class="alert alert-success text-center" role="alert">
                     De gegevens zijn verwijderd. u wordt teruggestuurd naar de index-pagina.
                 </div>
