@@ -28,7 +28,7 @@ $sql = "DELETE FROM Reservering
 
 
  /**
- * STATEMENTS
+ * STATEMENTS van pdo 
  */
 
 $statement = $pdo->prepare($sql);
@@ -61,6 +61,7 @@ header('Refresh: 3; url=index.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <!-- Alert melding -->
     <div class="container-mt-3">
         <div class="row-justify-content-center mt-3">
             <div class="col-10">
@@ -71,6 +72,7 @@ header('Refresh: 3; url=index.php');
         </div>
     </div>
 
+    <!-- Script van  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
             crossorigin="anonymous">
