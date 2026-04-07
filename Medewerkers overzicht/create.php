@@ -1,5 +1,6 @@
 <?php
 $display = 'none';
+$foutmelding = '';
 
 if (isset($_POST['submit'])) {
     include('config/config.php');
@@ -42,11 +43,19 @@ if (isset($_POST['submit'])) {
     $statement->bindValue(':nummer', $_POST['nummerMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':medewerkersoort', $medewerkerSoort, PDO::PARAM_STR);
 
+try {
     $statement->execute();
 
     $display = 'flex';
-
     header('Refresh:3; url=index.php');
+
+} catch (PDOException $e) {
+    if ($e->getCode() == 23000) {
+        $foutmelding = 'Gegevens al in gebruik.';
+    } else {
+        $foutmelding = 'Er is iets misgegaan.';
+    }
+}
 }
 ?>
 
@@ -98,6 +107,15 @@ if (isset($_POST['submit'])) {
                 De gegevens zijn opgeslagen. U wordt teruggestuurd naar het overzicht...
             </div>
         </div>
+
+<?php if (!empty($foutmelding)): ?>
+    <div class="error-melding">
+        <div class="error-box">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <?= $foutmelding; ?>
+        </div>
+    </div>
+<?php endif; ?>
 
         <!-- Formulier kaart -->
         <div class="formulier-wrapper">
