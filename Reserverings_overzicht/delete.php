@@ -42,6 +42,13 @@ $statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
 
 $statement->execute();
 
+// controleren of er iets verwijderd is
+if ($statement->rowCount() > 0) {
+    $melding = "De reservering is verwijderd.";
+    $type = "success";
+} 
+
+
 //stuur gebruiker terug naar index.php
 
 header('Refresh: 3; url=index.php');
