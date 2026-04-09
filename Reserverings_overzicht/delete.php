@@ -1,57 +1,39 @@
 <?php
-/**
- * Haal de inloggevens op uit het bestand config.php
- */
 include('config/config.php');
 
-/**
- * datasourcestrings maken
- * 
- */
+$dsn = "mysql:host=$dbHost;dbname=$dbName;charset=UTF8";
 
-$dsn = "mysql:host=$dbHost;
-        dbname=$dbName;
-        charset=UTF8";
+try {
+    // NIEUWe pdo
+    $pdo = new PDO($dsn, $dbUser, $dbPass);
+    
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-/**
- * PDO-Object
- */
-$pdo = new PDO($dsn, $dbUser, $dbPass);
+    $sql = "DELETE FROM Reservering WHERE Id = :id";
+    $statement = $pdo->prepare($sql);
+    // Sturen naar de ID
+    $statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+    // executeren
+    $statement->execute();
 
-/**
- * select sql query
- * 
- */
+    // controleren of er iets verwijderd is
+    if ($statement->rowCount() > 0) {
+        $melding = "De gegevens zijn verwijderd. U wordt teruggestuurd naar de index-pagina.";
+        $class = "alert-success";
+    } else {
+        $melding = "Er is niets verwijderd. Mogelijk bestaat het ID niet.";
+        $class = "alert-warning";
+    }
 
-$sql = "DELETE FROM Reservering
-        WHERE Id = :id";
-
-
-/**
- * STATEMENTS van pdo 
- */
-
-$statement = $pdo->prepare($sql);
-
-//KOPPEL de id aan query
-
-$statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-
-
-//geprepareede uit sql database
-
-$statement->execute();
-
-// controleren of er iets verwijderd is
-// Succesvol 
-
-
-
-
-//stuur gebruiker terug naar index.php
-
-header('Refresh: 3; url=index.php');
-
+    // ss
+} catch (PDOException $e) {
+    // unhappy scenario
+    $melding = "reservering is al verwijderd.";
+    // Stuurt de div een alert melding
+    $class = "alert-danger";
+}
+// terugsturen naar reserverings overzicht tabel
+header("Refresh: 3; url=index.php");
 ?>
 
 
@@ -69,14 +51,8 @@ header('Refresh: 3; url=index.php');
 
 <body>
     <!-- Alert melding -->
-    <div class="container-mt-3">
-        <div class="row-justify-content-center mt-3">
-            <div class="col-10">
-                <div class="alert alert-success text-center" role="alert">
-                    De gegevens zijn verwijderd. u wordt teruggestuurd naar de index-pagina.
-                </div>
-            </div>
-        </div>
+   <div class="alert <?= $class ?> text-center" role="alert">
+        <?= $melding ?>
     </div>
 
     <!-- Script van  -->
