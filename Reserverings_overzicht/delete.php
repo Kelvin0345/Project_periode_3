@@ -11,7 +11,7 @@ $dsn = "mysql:host=$dbHost;
 // Database aankoppelen
 $pdo = new PDO($dsn, $dbUser, $dbPass);
 
-// silent mode activeren (BELANGRIJK: vóór queries)
+// silent mode activeren zodat de unhappy scenario activeert
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
 // controleren of id bestaat
