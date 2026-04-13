@@ -15,11 +15,11 @@ if (isset($_GET['error'])) {
 <!DOCTYPE html>
 <html lang="nl">
 
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - FitForFun</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css"> <!-- stylesheet -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" 
         rel="stylesheet">
 </head>
@@ -51,7 +51,7 @@ if (isset($_GET['error'])) {
                 <button type="submit" class="btn-login">Login</button>
             </form>
 
-            <a href="index.php" class="back-link">Terug naar home</a>
+            <a href="index.php" class="back-link">Terug naar home</a> <!-- terug knop naar de index -->
         </div>
     </div>
 

@@ -29,15 +29,18 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 <!--hier start de html -->
 <!doctype html>
 <html lang="en">
-<head> 
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project 3</title> <!--de titel van de browser tab -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/MedewerkersOverzicht.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -51,7 +54,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </ul>
         <div class="nav-auth">
             <a href="#" class="btn-registreer">Registreren</a>
-            <a href="#" class="btn-login">Login</a>
+            <a href="../login.php" class="btn-login">Login</a>
         </div>
     </nav>
 
@@ -81,23 +84,35 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                         <th>Achternaam</th>
                         <th>Nummer</th>
                         <th>Medewerkersoort</th>
+                        <th>Wijzig</th>
+                        <th>Verwijder</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $medewerker):?>
-                    <tr>
-                        <td><?= $medewerker->Id; ?></td>
-                        <td><?= $medewerker->Voornaam; ?></td>
-                        <td><?= $medewerker->Tussenvoegsel; ?></td>
-                        <td><?= $medewerker->Achternaam; ?></td>
-                        <td><?= $medewerker->Nummer; ?></td>
-                        <td>
-                            <!-- Badge kleur op basis van medewerkersoort -->
-                            <span class="mdw-badge mdw-<?= strtolower($medewerker->Medewerkersoort); ?>">
-                                <?= $medewerker->Medewerkersoort; ?>
-                            </span>
-                        </td>
-                    </tr>
+                    <?php foreach ($result as $medewerker): ?>
+                        <tr>
+                            <td><?= $medewerker->Id; ?></td>
+                            <td><?= $medewerker->Voornaam; ?></td>
+                            <td><?= $medewerker->Tussenvoegsel; ?></td>
+                            <td><?= $medewerker->Achternaam; ?></td>
+                            <td><?= $medewerker->Nummer; ?></td>
+                            <td>
+                                <!-- Badge kleur op basis van medewerkersoort -->
+                                <span class="mdw-badge mdw-<?= strtolower($medewerker->Medewerkersoort); ?>">
+                                    <?= $medewerker->Medewerkersoort; ?>
+                                </span>
+                            </td>
+                                <td class="text-center">
+                                    <a href="update.php?id=<?= $medewerker->Id; ?>">
+                                        <i class="bi bi-pencil-square text-success"></i>
+                                    </a>
+                                </td>
+                            <td class="text-center">
+                                <a href="delete.php?id=<?= $medewerker->Id; ?>">
+                                    <i class="bi bi-x-square text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -132,6 +147,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     </footer>
 
     <!--hieronder is de script voor bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

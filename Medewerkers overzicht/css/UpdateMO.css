@@ -104,7 +104,7 @@ body {
 }
 
 /* ===========================
-   MEDEWERKERS PAGINA (gedeeld)
+   MEDEWERKERS PAGINA
 =========================== */
 .medewerkers-pagina {
     min-height: 80vh;
@@ -112,9 +112,9 @@ body {
     background-color: #0d0d0d;
 }
 
-/* Wordt overschreven door de specifiekere versie in de tabel sectie */
 .medewerkers-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-label {
@@ -140,135 +140,8 @@ body {
 }
 
 /* ===========================
-   TABEL (index.php)
+   SUCCES MELDING
 =========================== */
-
-/* Header rij: titel links, knop rechts */
-.medewerkers-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Knop naar create pagina */
-.btn-nieuwe-mdw {
-    text-decoration: none;
-    background-color: #043878;
-    color: #ffffff;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-    /* Zorgt dat de knop onderaan de titel uitgelijnd is */
-    margin-bottom: 4px;
-}
-
-.btn-nieuwe-mdw:hover {
-    background-color: #02244d;
-    transform: translateY(-2px);
-    color: #ffffff;
-}
-
-.tabel-wrapper {
-    background-color: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 10px;
-    /* Tabel vult de volledige breedte van de pagina container */
-    overflow: hidden;
-    animation: fadeInUp 0.9s ease forwards;
-}
-
-.medewerkers-tabel {
-    margin-bottom: 0;
-    color: #f0f0f0;
-}
-
-.medewerkers-tabel thead tr {
-    background-color: #043878 !important;
-}
-
-.medewerkers-tabel thead th {
-    color: #000000;
-    font-family: 'Barlow', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border: none;
-}
-
-.medewerkers-tabel tbody tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background-color 0.2s;
-}
-
-.medewerkers-tabel.table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: #1f1f1f;
-    color: #f0f0f0;
-}
-
-.medewerkers-tabel.table-striped > tbody > tr:nth-of-type(even) > * {
-    background-color: #161616;
-    color: #f0f0f0;
-}
-
-.medewerkers-tabel.table-hover > tbody > tr:hover > * {
-    background-color: rgba(4, 56, 120, 0.2);
-    color: #ffffff;
-}
-
-.medewerkers-tabel tbody td {
-    padding: 14px 20px;
-    font-size: 14px;
-    color: #cccccc;
-    border: none;
-    vertical-align: middle;
-}
-
-/* Badges voor medewerkersoort */
-.mdw-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.mdw-manager {
-    background-color: rgba(4, 56, 120, 0.3);
-    color: #6eaaff;
-    border: 1px solid rgba(4, 56, 120, 0.5);
-}
-
-.mdw-beheerder {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.3);
-}
-
-.mdw-diskmedewerker {
-    background-color: rgba(255, 255, 255, 0.07);
-    color: #aaaaaa;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ===========================
-   FORMULIER (create.php)
-=========================== */
-
-/* Succes melding na opslaan */
 .succes-melding {
     margin-bottom: 30px;
     animation: fadeInUp 0.5s ease forwards;
@@ -292,7 +165,9 @@ body {
     font-size: 20px;
 }
 
-/* Terug knop */
+/* ===========================
+   TERUG LINK
+=========================== */
 .terug-link {
     display: inline-flex;
     align-items: center;
@@ -310,13 +185,16 @@ body {
     color: #ffffff;
 }
 
-/* De formulier kaart */
+/* ===========================
+   FORMULIER KAART
+=========================== */
 .formulier-wrapper {
     background-color: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 10px;
     padding: 40px;
     max-width: 700px;
+    margin: 0 auto;
     animation: fadeInUp 0.9s ease forwards;
 }
 
@@ -336,7 +214,7 @@ body {
     color: #aaaaaa;
 }
 
-/* Stijl voor alle input velden */
+/* Alle input velden */
 .form-rij input,
 .form-rij select {
     background-color: #111111;
@@ -428,21 +306,9 @@ body {
     object-fit: contain;
 }
 
-/* per icoon apart finetunen */
-.x-btn img {
-    width: 50px;
-    height: 50px;
-}
-
-.fb-btn img {
-    width: 70px;
-    height: 70px;
-}
-
-.ig-btn img {
-    width: 50px;
-    height: 50px;
-}
+.x-btn img  { width: 50px; height: 50px; }
+.fb-btn img { width: 70px; height: 70px; }
+.ig-btn img { width: 50px; height: 50px; }
 
 /* ===========================
    FOOTER
@@ -528,10 +394,6 @@ body {
         font-size: 42px;
     }
 
-    .tabel-wrapper {
-        overflow-x: auto;
-    }
-
     .formulier-wrapper {
         padding: 24px 20px;
     }
@@ -545,6 +407,3 @@ body {
         text-align: center;
     }
 }
-
-
-
