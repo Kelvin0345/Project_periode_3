@@ -599,3 +599,20 @@ body {
         right: 16px;
     }
 }
+
+.mobile-menu-sluit {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.mobile-menu-sluit:hover {
+    color: #043878;
+}
