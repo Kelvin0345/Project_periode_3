@@ -23,61 +23,57 @@ $sql = 'SELECT MDW.Id
 $statement = $pdo->prepare($sql);
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
-
-//var_dump($result);
 ?>
-<!--hier start de html -->
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 3</title> <!--de titel van de browser tab -->
+    <title>Project 3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/MedewerkersOverzicht.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="nav-logo">FitFor<span>FUN</span></div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">FitFor<span>FUN</span></div>
 
-    <ul class="nav-links">
-        <li><a href="/index.php">Home</a></li>
-        <li><a href="/Lessen.html">Lessen</a></li>
-        <li><a href="#vacatures">Vacaturen</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+        <ul class="nav-links">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/Lessen.html">Lessen</a></li>
+            <li><a href="#vacatures">Vacaturen</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-    <div class="nav-auth">
-        <a href="#" class="btn-registreer">Registreren</a>
-        <a href="../login.php" class="btn-login">Login</a>
+        <div class="nav-auth">
+            <a href="#" class="btn-registreer">Registreren</a>
+            <a href="../login.php" class="btn-login">Login</a>
+        </div>
+
+        <!-- Hamburger knop (alleen zichtbaar op mobiel) -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobiel menu (fullscreen overlay) -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/index.php">Home</a>
+        <a href="/Lessen.html">Lessen</a>
+        <a href="#vacatures">Vacaturen</a>
+        <a href="#contact">Contact</a>
+        <div class="mobile-menu-auth">
+            <a href="#" class="btn-registreer">Registreren</a>
+            <a href="../login.php" class="btn-login">Login</a>
+        </div>
     </div>
-
-    <!-- Hamburger knop (alleen zichtbaar op mobiel) -->
-    <button class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</nav>
-
-<!-- Mobiel menu (fullscreen overlay) -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="/index.php">Home</a>
-    <a href="/Lessen.html">Lessen</a>
-    <a href="#vacatures">Vacaturen</a>
-    <a href="#contact">Contact</a>
-    <div class="mobile-menu-auth">
-        <a href="#" class="btn-registreer">Registreren</a>
-        <a href="../login.php" class="btn-login">Login</a>
-    </div>
-</div>
 
     <!-- PAGINA INHOUD -->
     <div class="medewerkers-pagina">
@@ -88,7 +84,6 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                 <p class="hero-label">Personeel</p>
                 <h1 class="medewerkers-titel">Medewerkers <span>Overzicht</span></h1>
             </div>
-            <!-- Knop naar create pagina -->
             <a href="create.php" class="btn-nieuwe-mdw">
                 <i class="bi bi-person-plus-fill"></i> Nieuwe Medewerker
             </a>
@@ -118,7 +113,6 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $medewerker->Achternaam; ?></td>
                             <td><?= $medewerker->Nummer; ?></td>
                             <td>
-                                <!-- Badge kleur op basis van medewerkersoort -->
                                 <span class="mdw-badge mdw-<?= strtolower($medewerker->Medewerkersoort); ?>">
                                     <?= $medewerker->Medewerkersoort; ?>
                                 </span>
@@ -167,10 +161,12 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
     </footer>
 
-    <!--hieronder is de script voor bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-</body>
 
+    <!-- Externe JS voor hamburger menu -->
+    <script src="js/navbar.js"></script>
+
+</body>
 </html>
