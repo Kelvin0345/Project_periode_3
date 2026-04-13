@@ -43,20 +43,41 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-logo">FitFor<span>FUN</span></div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/Lessen.html">Lessen</a></li>
-            <li><a href="#vacatures">Vacaturen</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="../login.php" class="btn-login">Login</a>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-logo">FitFor<span>FUN</span></div>
+
+    <ul class="nav-links">
+        <li><a href="/index.php">Home</a></li>
+        <li><a href="/Lessen.html">Lessen</a></li>
+        <li><a href="#vacatures">Vacaturen</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-auth">
+        <a href="#" class="btn-registreer">Registreren</a>
+        <a href="../login.php" class="btn-login">Login</a>
+    </div>
+
+    <!-- Hamburger knop (alleen zichtbaar op mobiel) -->
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- Mobiel menu (fullscreen overlay) -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/index.php">Home</a>
+    <a href="/Lessen.html">Lessen</a>
+    <a href="#vacatures">Vacaturen</a>
+    <a href="#contact">Contact</a>
+    <div class="mobile-menu-auth">
+        <a href="#" class="btn-registreer">Registreren</a>
+        <a href="../login.php" class="btn-login">Login</a>
+    </div>
+</div>
 
     <!-- PAGINA INHOUD -->
     <div class="medewerkers-pagina">
