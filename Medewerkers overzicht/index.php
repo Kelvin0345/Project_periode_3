@@ -64,16 +64,20 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     </nav>
 
     <!-- Mobiel menu (fullscreen overlay) -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/index.php">Home</a>
-        <a href="/Lessen.html">Lessen</a>
-        <a href="#vacatures">Vacaturen</a>
-        <a href="#contact">Contact</a>
-        <div class="mobile-menu-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="../login.php" class="btn-login">Login</a>
-        </div>
+<div class="mobile-menu" id="mobileMenu">
+
+    <!-- Sluit knop rechtsboven -->
+    <button class="mobile-menu-sluit" id="menuSluit">✕</button>
+
+    <a href="/index.php">Home</a>
+    <a href="/Lessen.html">Lessen</a>
+    <a href="#vacatures">Vacaturen</a>
+    <a href="#contact">Contact</a>
+    <div class="mobile-menu-auth">
+        <a href="#" class="btn-registreer">Registreren</a>
+        <a href="../login.php" class="btn-login">Login</a>
     </div>
+</div>
 
     <!-- PAGINA INHOUD -->
     <div class="medewerkers-pagina">
