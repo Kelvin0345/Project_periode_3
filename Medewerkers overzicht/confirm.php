@@ -16,6 +16,9 @@ if ($id === 0) {
 </head>
 <body>
 
+    <!-- Index pagina als achtergrond -->
+    <iframe class="bg-iframe" src="index.php"></iframe>
+
     <div class="delete-wrapper">
         <div class="delete-card">
             <div class="delete-icon">
@@ -33,15 +36,11 @@ if ($id === 0) {
                Deze actie kan niet ongedaan worden gemaakt.</p>
 
             <div class="d-flex gap-3 justify-content-center mt-3">
-                <!-- Bevestigen → gaat naar delete.php -->
                 <a href="delete.php?id=<?= $id ?>" class="delete-btn">Ja, verwijderen</a>
-
-                <!-- Annuleren → unhappy scenario -->
                 <a href="index.php" class="btn btn-secondary">Annuleren</a>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
