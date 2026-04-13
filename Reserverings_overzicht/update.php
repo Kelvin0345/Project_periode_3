@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
 
     // var_dump($_POST);
 
+    // Sql update
     $sql = "UPDATE   Reservering` as RS
         SET      Voonaam = :voornaam
                  ,Tussenvoegsel = :tussenvoegsel
@@ -26,15 +27,17 @@ if (isset($_POST['submit'])) {
                  ,Tijd = :tijd
                  ,Reserveringstatus = :Reserveringstatus
         WHERE RS.Id = :id";
-
+    
+    // Statement prepareren
     $statement = $pdo->prepare($sql);
 
-    $statement->bindValue(':rollercoaster', $_POST['RollerCoaster'], PDO::PARAM_STR);
-    $statement->bindValue(':amusementPark', $_POST['AmusementPark'], PDO::PARAM_STR);
-    $statement->bindValue(':country', $_POST['Country'], PDO::PARAM_STR);
-    $statement->bindValue(':topSpeed', $_POST['TopSpeed'], PDO::PARAM_INT);
-    $statement->bindValue(':height', $_POST['Height'], PDO::PARAM_INT);
-    $statement->bindValue(':yofc', $_POST['YOFC'], PDO::PARAM_STR);
+    $statement->bindValue(':voornaam', $_POST['Voornaam'], PDO::PARAM_STR);
+    $statement->bindValue(':tussenvoegsel', $_POST['Tussenvoegsel'], PDO::PARAM_STR);
+    $statement->bindValue(':achternaam', $_POST['Achternaam'], PDO::PARAM_STR);
+    $statement->bindValue(':nummer', $_POST['Nummer'], PDO::PARAM_INT);
+    $statement->bindValue(':datum', $_POST['Datum'], PDO::PARAM_INT);
+    $statement->bindValue(':tijd', $_POST['Tijd'], PDO::PARAM_STR);
+    $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
     $statement->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
 
     $statement->execute();
@@ -50,15 +53,15 @@ if (isset($_POST['submit'])) {
 
 
 
-    $sql = "SELECT HAVE.Id
-              ,HAVE.RollerCoaster
-              ,HAVE.AmusementPark
-              ,HAVE.Country
-              ,HAVE.TopSpeed
-              ,HAVE.Height
-              ,DATE_FORMAT (Have.YearOfConstruction, '%d-%m-%Y') AS YOFC
-        FROM rollercoaster AS HAVE
-        WHERE HAVE.Id = :id";
+    $sql = "SELECT RS.Id
+              ,RS.Voornaam
+              ,RS.Tussenvoegsel
+              ,RS.Achternaam
+              ,RS.Nummer
+              ,RS.Tijd
+              ,DATE_FORMAT (RS.Tijd, '%d-%m-%Y') 
+        FROM Reservering AS RS
+        WHERE RS.Id = :id";
 
     $statement = $pdo->prepare($sql);
 
@@ -102,7 +105,7 @@ if (isset($_POST['submit'])) {
         <!-- titel pagina -->
         <div class="row justify-content-center">
             <div class="col-6">
-                <h3 class="text-primary">Wijzig de achtbaangegevens:</h3>
+                <h3 class="text-primary">Wijzig Reser:</h3>
             </div>
         </div>
 
