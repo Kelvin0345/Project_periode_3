@@ -3,8 +3,10 @@ include('config/config.php');
 
 $dsn = "mysql:host=$dbHost;dbname=$dbName;charset=UTF8";
 $pdo = new PDO($dsn, $dbUser, $dbPass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $display = 'none';
+$foutmelding = '';
 
 if (isset($_POST['submit'])) {
 
@@ -23,11 +25,18 @@ if (isset($_POST['submit'])) {
     $statement->bindValue(':achternaam', $_POST['achternaamMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':nummer', $_POST['nummerMedewerker'], PDO::PARAM_STR);
     $statement->bindValue(':medewerkersoort', $_POST['medewerkerSoort'], PDO::PARAM_STR);
+
+    try {
+    
+    //throw new PDOException('Test fout');    
     $statement->execute();
 
-    $display = 'flex';
+        $display = 'flex';
+        header('Refresh: 3; url=index.php');
 
-    header('Refresh: 3; url=index.php');
+    } catch (PDOException $e) {
+        $foutmelding = 'Er is iets misgegaan bij het opslaan.';
+    }
 
 } else {
     $sql = "SELECT Id, Voornaam, Tussenvoegsel, Achternaam, Nummer, Medewerkersoort
@@ -90,6 +99,15 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
 
+        <?php if (!empty($foutmelding)): ?>
+            <div class="error-melding">
+                <div class="error-box">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <?= $foutmelding; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <!-- Formulier kaart -->
         <div class="formulier-wrapper">
 
@@ -105,8 +123,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="form-rij">
                     <label for="InputVoorNaamMedewerker">Voornaam</label>
-                    <input name="voornaamMedewerker" type="text" id="InputVoorNaamMedewerker"
-                        placeholder="Bijv. Emma"
+                    <input name="voornaamMedewerker" type="text" id="InputVoorNaamMedewerker" placeholder="Bijv. Emma"
                         value="<?= $_POST['voornaamMedewerker'] ?? $result->Voornaam ?? '' ?>">
                 </div>
 
@@ -126,8 +143,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="form-rij">
                     <label for="InputNummerMedewerker">Nummer</label>
-                    <input name="nummerMedewerker" type="text" id="InputNummerMedewerker"
-                        placeholder="Bijv. 1006"
+                    <input name="nummerMedewerker" type="text" id="InputNummerMedewerker" placeholder="Bijv. 1006"
                         value="<?= $_POST['nummerMedewerker'] ?? $result->Nummer ?? '' ?>">
                 </div>
 
@@ -136,8 +152,7 @@ if (isset($_POST['submit'])) {
                     <select name="medewerkerSoort" id="InputMedewerkerSoort" required>
                         <option value="" disabled>Kies een soort...</option>
                         <?php foreach (['Manager', 'Beheerder', 'Diskmedewerker'] as $soort): ?>
-                            <option value="<?= $soort ?>"
-                                <?= (($_POST['medewerkerSoort'] ?? $result->Medewerkersoort ?? '') === $soort) ? 'selected' : '' ?>>
+                            <option value="<?= $soort ?>" <?= (($_POST['medewerkerSoort'] ?? $result->Medewerkersoort ?? '') === $soort) ? 'selected' : '' ?>>
                                 <?= $soort ?>
                             </option>
                         <?php endforeach; ?>

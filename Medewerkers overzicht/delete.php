@@ -64,8 +64,6 @@ header('Refresh: 3; url=index.php');
         </div>
     </div>
 
-    <!-- FOOTER KOMT HIER (doe jij zelf) -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESAaA55NDzOxhy9GkcIdsLk1eN7N6jIeHz"
             crossorigin="anonymous">
