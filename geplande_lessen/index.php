@@ -74,7 +74,8 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
 </head>
 <body>
     
-    <nav class="navbar"> <!-- hier is de nav bar -->
+    <!-- navbar -->
+    <nav class="navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
             <ul class="nav-links">
                 <li><a href="/index.php">Home</a></li>
@@ -83,9 +84,9 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-        <div class="nav-auth"> <!-- login en registeer knoppen -->
+        <div class="nav-auth">
             <a href="#" class="btn-registreer">Registreren</a>
-            <a href="../login.php" class="btn-login">Login</a>
+            <a href="#" class="btn-login">Login</a>
         </div>
     </nav>
    
@@ -99,6 +100,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 
+    <!-- tabel les -->
     <div class="tabel-wrapper">
         <table class="table table-striped table-hover reserveringen-tabel">
             <thead>
@@ -135,6 +137,7 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
     
+    <!-- tabel leden -->
     <div class="table wrapper">
         <table class="table table-striped table-hover reserveringen-tabel">
                 <thead>
@@ -173,7 +176,8 @@ $ledenResult = $statementLeden->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
     </footer>
-
+    
+    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
             crossorigin="anonymous">
