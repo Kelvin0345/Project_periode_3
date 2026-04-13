@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
                  ,Tijd = :tijd
                  ,Reserveringstatus = :Reserveringstatus
         WHERE RS.Id = :id";
-    
+
     // Statement prepareren
     $statement = $pdo->prepare($sql);
 
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Update fomulier</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -123,41 +123,57 @@ if (isset($_POST['submit'])) {
             <div class="col-6">
                 <form action="update.php" method="POST">
                     <div class="mb-3">
-                        <label for="inputNaamAchtbaan" class="form-label">Naam Achtbaan:</label>
-                        <input name="RollerCoaster" placeholder="Vul de naam van de achtbaan in" type="text"
-                            class="form-control" id="inputNaamAchtbaan"
-                            value="<?= $result->RollerCoaster ?? $_POST['RollerCoaster'] ?>">
+                        <label for="inputVoornaam" class="form-label">Voornaam:</label>
+                        <input name="Voornaam" placeholder="Vul de voornaam in" type="text" class="form-control"
+                            id="inputVoornaam" value="<?= $result->Voornaam ?? $_POST['Voornaam'] ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputNaamPretpark" class="form-label">Naam Pretpark:</label>
-                        <input name="AmusementPark" placeholder="Vul de naam van het pretpark in" type="text"
-                            class="form-control" id="inputNaamPretpark"
-                            value="<?= $result->AmusementPark ?? $_POST['AmusementPark'] ?>">
+                        <label for="inputTussenvoegsel" class="form-label">Tussenvoegsel:</label>
+                        <input name="Tussenvoegsel" placeholder="Vul de tussenvoegsel in" type="text"
+                            class="form-control" id="inputTussenvoegsel"
+                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputLand" class="form-label">Land:</label>
-                        <input name="Country" placeholder="Vul het land in" type="text" class="form-control"
-                            id="inputLand" value="<?= $result->Country ?? $_POST['Country'] ?>">
+                        <label for="inputAchternaam" class="form-label">Achternaam:</label>
+                        <input name="Achternaam" placeholder="Vul Achternaam in" type="text" class="form-control"
+                            id="inputAchternaam" value="<?= $result->Achternaam ?? $_POST['Achternaam'] ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputTopsnelheid" class="form-label">Topsnelheid:</label>
-                        <input name="TopSpeed" placeholder="Vul de topsnelheid in" type="text" class="form-control"
-                            id="inputTopsnelheid" value="<?= $result->TopSpeed ?? $_POST['TopSpeed'] ?>">
+                        <label for="inputNummer" class="form-label">Nummer:</label>
+                        <input name="Nummer" placeholder="Vul de Nummer in" type="text" class="form-control"
+                            id="inputNummer" value="<?= $result->Nummer ?? $_POST['Nummer'] ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputHoogte" class="form-label">Hoogte:</label>
-                        <input name="Height" placeholder="Vul de hoogte in" type="text" class="form-control"
-                            id="inputHoogte" value="<?= $result->Height ?? $_POST['Height'] ?>">
+                        <label for="inputDatum" class="form-label">Datum:</label>
+                        <input name="Datum" placeholder="Vul de datum in" type="date" class="form-control"
+                            id="inputDatum" value="<?= $_POST['Datum'] ?? $result->Datum ?? '' ?>">
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputYearOfConstruction" class="form-label">Bouwjaar:</label>
-                        <input name="YOFC" placeholder="Vul het bouwjaar in" type="date" class="form-control"
-                            id="inputYearOfConstruction" value="<?= $result->YOFC ?? $_POST['YOFC'] ?>">
+                        <label for="inputTijd " class="form-label">Tijd:</label>
+                        <input name="Tijd" placeholder="Vul de TIjd in" type="text" class="form-control" id="inputTijd"
+                            value="<?= $result->Tijd ?? $_POST['Tijd'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="inputReserveringstatus" class="form-label">Reserveringstatus:</label>
+
+                            <select name="Reserveringstatus" class="form-control" id="inputReserveringstatus" required>
+                                <option value="">Kies een status</option>
+                                <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
+                                <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
+                                <option value="Gereserveerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Gereserveerd' ? 'selected' : '' ?>>Gereserveerd
+                                </option>
+                                <option value="Geannuleerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Geannuleerd' ? 'selected' : '' ?>>Geannuleerd
+                                </option>
+                            </select>
+                        </div>
+
                     </div>
 
                     <input name="id" type="hidden" value="<?= $result->Id ?? $_POST['id'] ?>">
@@ -168,6 +184,9 @@ if (isset($_POST['submit'])) {
                 </form>
             </div>
         </div>
+
+
+        
     </div>
 
 

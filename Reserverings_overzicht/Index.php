@@ -115,6 +115,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                         <th>Datum</th>
                         <th>Tijd</th>
                         <th>Reserveringstatus</th>
+                        <th>Wijzig</th>
                         <th>Verwijder</th>
                     </tr>
                 </thead>
