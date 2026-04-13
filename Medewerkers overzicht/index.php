@@ -40,7 +40,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar">
+    <nav class="mijn-navbar">
         <div class="nav-logo">FitFor<span>FUN</span></div>
 
         <ul class="nav-links">
