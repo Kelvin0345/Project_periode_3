@@ -1,78 +1,102 @@
 <?php
 
-// Database gegevns laden
+// Database gegevens laden
 include('config/config.php');
 
 // Dsn aanmaken
 $dsn = "mysql:host=$dbHost;dbname=$dbName;charset=UTF8";
 $pdo = new PDO($dsn, $dbUser, $dbPass);
 
+$display = 'none';
+$error = '';
+
 // Controleren of het formulier is verstuurd
 if (isset($_POST['submit'])) {
 
-    // Ingevoerde gegevens opschonen
-    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // Controleren of id aanwezig en geldig is
+    if (empty($_POST['id']) || !is_numeric($_POST['id'])) {
+        $error = 'Ongeldige reservering. Het ID ontbreekt of is ongeldig.';
+    } else {
 
-    // SQL query om gegevens te wijzigen
-    $sql = "UPDATE Reservering AS RS
-            SET Voornaam = :voornaam,
-                Tussenvoegsel = :tussenvoegsel,
-                Achternaam = :achternaam,
-                Nummer = :nummer,
-                Datum = :datum,
-                Tijd = :tijd,
-                Reserveringstatus = :Reserveringstatus
-            WHERE RS.Id = :id";
-    
-    // Query voorbereiden
-    $statement = $pdo->prepare($sql);
-    
-    // Waarden koppelen
-    $statement->bindValue(':voornaam', $_POST['Voornaam'], PDO::PARAM_STR);
-    $statement->bindValue(':tussenvoegsel', $_POST['Tussenvoegsel'], PDO::PARAM_STR);
-    $statement->bindValue(':achternaam', $_POST['Achternaam'], PDO::PARAM_STR);
-    $statement->bindValue(':nummer', $_POST['Nummer'], PDO::PARAM_STR);
-    $statement->bindValue(':datum', $_POST['Datum'], PDO::PARAM_STR);
-    $statement->bindValue(':tijd', $_POST['Tijd'], PDO::PARAM_STR);
-    $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
-    $statement->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
-    
-    // Statement uitvoeren 
-    $statement->execute();
+        // Ingevoerde gegevens opschonen
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    // Succes melding tonen
-    $display = 'flex';
+        // SQL query om gegevens te wijzigen
+        $sql = "UPDATE Reservering AS RS
+                SET Voornaam = :voornaam,
+                    Tussenvoegsel = :tussenvoegsel,
+                    Achternaam = :achternaam,
+                    Nummer = :nummer,
+                    Datum = :datum,
+                    Tijd = :tijd,
+                    Reserveringstatus = :Reserveringstatus
+                WHERE RS.Id = :id";
 
-    // Na 3 seconden terug naar index
-    header('Refresh:3; index.php');
+        // Query voorbereiden
+        $statement = $pdo->prepare($sql);
+
+        // Waarden koppelen
+        $statement->bindValue(':voornaam', $_POST['Voornaam'], PDO::PARAM_STR);
+        $statement->bindValue(':tussenvoegsel', $_POST['Tussenvoegsel'], PDO::PARAM_STR);
+        $statement->bindValue(':achternaam', $_POST['Achternaam'], PDO::PARAM_STR);
+        $statement->bindValue(':nummer', $_POST['Nummer'], PDO::PARAM_STR);
+        $statement->bindValue(':datum', $_POST['Datum'], PDO::PARAM_STR);
+        $statement->bindValue(':tijd', $_POST['Tijd'], PDO::PARAM_STR);
+        $statement->bindValue(':Reserveringstatus', $_POST['Reserveringstatus'], PDO::PARAM_STR);
+        $statement->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
+
+        // Statement uitvoeren
+        $statement->execute();
+
+        // Controleren of er daadwerkelijk een rij is gewijzigd
+        if ($statement->rowCount() > 0) {
+            // Succes melding tonen
+            $display = 'flex';
+            // Na 3 seconden terug naar index
+            header('Refresh:3; index.php');
+        } else {
+            $error = 'De reservering kon niet worden gevonden. Er zijn geen gegevens gewijzigd.';
+        }
+    }
 
 } else {
-    
-    // Gegevens ophalen van  reservering
-    $sql = "SELECT RS.Id,
-                   RS.Voornaam,
-                   RS.Tussenvoegsel,
-                   RS.Achternaam,
-                   RS.Nummer,
-                   RS.Datum,
-                   RS.Tijd,
-                   RS.Reserveringstatus
-            FROM Reservering AS RS
-            WHERE RS.Id = :id";
-    
-    // Query voorbereiden
-    $statement = $pdo->prepare($sql);
-    // ID uit URL halen
-    $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
-    // Uitvoeren
-    $statement->execute();
-    // Resultaat ophalen
-    $result = $statement->fetch(PDO::FETCH_OBJ);
+
+    // Controleren of id aanwezig is in de URL
+    if (empty($_GET['id']) || !is_numeric($_GET['id'])) {
+        $error = 'Ongeldige reservering. Het ID ontbreekt of is ongeldig.';
+    } else {
+
+        // Gegevens ophalen van reservering
+        $sql = "SELECT RS.Id,
+                       RS.Voornaam,
+                       RS.Tussenvoegsel,
+                       RS.Achternaam,
+                       RS.Nummer,
+                       RS.Datum,
+                       RS.Tijd,
+                       RS.Reserveringstatus
+                FROM Reservering AS RS
+                WHERE RS.Id = :id";
+
+        // Query voorbereiden
+        $statement = $pdo->prepare($sql);
+        // ID uit URL halen
+        $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+        // Uitvoeren
+        $statement->execute();
+        // Resultaat ophalen
+        $result = $statement->fetch(PDO::FETCH_OBJ);
+
+        // Controleren of reservering bestaat
+        if (!$result) {
+            $error = 'De reservering kon niet worden gevonden.';
+        }
+    }
 }
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="utf-8">
@@ -82,31 +106,42 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <!-- container van de update -->
     <div class="container mt-3">
 
-        <!-- tekst van Wijzigen Reservering -->
+        <!-- Titel -->
         <div class="row justify-content-center">
             <div class="col-6">
                 <h3 class="text-primary">Wijzig Reservering:</h3>
             </div>
         </div>
 
-        <!-- Terugsturen naar de index -->
-        <div class="row justify-content-center" style="display:<?= $display ?? 'none'; ?>">
+        <!-- Succesmelding -->
+        <div class="row justify-content-center" style="display:<?= $display ?>">
             <div class="col-6">
                 <div class="alert alert-success text-center">
-                    De gegevens zijn gewijzigd. U wordt teruggestuurd naar de index-pagina
+                    De gegevens zijn gewijzigd. U wordt teruggestuurd naar de index-pagina.
                 </div>
             </div>
         </div>
 
-        <!-- div voor de formulier -->
+        <!-- Foutmelding -->
+        <?php if (!empty($error)): ?>
         <div class="row justify-content-center">
             <div class="col-6">
-                <!-- Formulier voor aanpassen -->
+                <div class="alert alert-danger text-center">
+                    <?= $error ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <!-- Formulier alleen tonen als er geen fout is -->
+        <?php if (empty($error) && $display === 'none'): ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
                 <form action="update.php" method="POST">
-                    <!-- VOORNAAM -->
+
+                    <!-- Voornaam -->
                     <div class="mb-3">
                         <label class="form-label">Voornaam:</label>
                         <input name="Voornaam" type="text" class="form-control"
@@ -117,7 +152,7 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label class="form-label">Tussenvoegsel:</label>
                         <input name="Tussenvoegsel" type="text" class="form-control"
-                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>" >
+                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>">
                     </div>
 
                     <!-- Achternaam -->
@@ -131,7 +166,7 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label class="form-label">Nummer:</label>
                         <input name="Nummer" type="text" class="form-control"
-                            value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>"required>
+                            value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>" required>
                     </div>
 
                     <!-- Datum -->
@@ -160,10 +195,10 @@ if (isset($_POST['submit'])) {
                         </select>
                     </div>
 
-                    <!-- Id selecteren als wijzigen -->
-                    <input name="id" type="hidden" value="<?= $result->Id ?? $_POST['id'] ?>">
-                  
-                    <!-- Vestuur knop -->
+                    <!-- Hidden ID -->
+                    <input name="id" type="hidden" value="<?= $result->Id ?? $_POST['id'] ?? '' ?>">
+
+                    <!-- Verstuur knop -->
                     <div class="d-grid">
                         <button name="submit" class="btn btn-primary btn-lg">Verstuur</button>
                     </div>
@@ -171,6 +206,7 @@ if (isset($_POST['submit'])) {
                 </form>
             </div>
         </div>
+        <?php endif; ?>
 
     </div>
 </body>
