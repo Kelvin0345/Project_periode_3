@@ -102,13 +102,13 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                                     <?= $medewerker->Medewerkersoort; ?>
                                 </span>
                             </td>
-                                <td class="text-center">
-                                    <a href="update.php?id=<?= $medewerker->Id; ?>">
-                                        <i class="bi bi-pencil-square text-success"></i>
-                                    </a>
-                                </td>
                             <td class="text-center">
-                                <a href="delete.php?id=<?= $medewerker->Id; ?>">
+                                <a href="update.php?id=<?= $medewerker->Id; ?>">
+                                    <i class="bi bi-pencil-square text-success"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="confirm.php?id=<?= $medewerker->Id; ?>">
                                     <i class="bi bi-x-square text-danger"></i>
                                 </a>
                             </td>
