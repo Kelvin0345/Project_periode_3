@@ -82,6 +82,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+    <!-- container van de update -->
     <div class="container mt-3">
 
         <!-- tekst van Wijzigen Reservering -->
@@ -100,7 +101,7 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
 
-
+        <!-- div voor de formulier -->
         <div class="row justify-content-center">
             <div class="col-6">
                 <!-- Formulier voor aanpassen -->
@@ -175,4 +176,3 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
-```
