@@ -126,87 +126,93 @@ if (isset($_POST['submit'])) {
 
         <!-- Foutmelding -->
         <?php if (!empty($error)): ?>
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div class="alert alert-danger text-center">
-                    <?= $error ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-danger text-center">
+                        <?= $error ?>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php endif; ?>
 
         <!-- Formulier alleen tonen als er geen fout is -->
         <?php if (empty($error) && $display === 'none'): ?>
-        <div class="row justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <form action="update.php" method="POST">
+
+                        <!-- Voornaam -->
+                        <div class="mb-3">
+                            <label class="form-label">Voornaam:</label>
+                            <input name="Voornaam" type="text" class="form-control"
+                                value="<?= $result->Voornaam ?? $_POST['Voornaam'] ?? '' ?>" required>
+                        </div>
+
+                        <!-- Tussenvoegsel -->
+                        <div class="mb-3">
+                            <label class="form-label">Tussenvoegsel:</label>
+                            <input name="Tussenvoegsel" type="text" class="form-control"
+                                value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>">
+                        </div>
+
+                        <!-- Achternaam -->
+                        <div class="mb-3">
+                            <label class="form-label">Achternaam:</label>
+                            <input name="Achternaam" type="text" class="form-control"
+                                value="<?= $result->Achternaam ?? $_POST['Achternaam'] ?? '' ?>" required>
+                        </div>
+
+                        <!-- Nummer -->
+                        <div class="mb-3">
+                            <label class="form-label">Nummer:</label>
+                            <input name="Nummer" type="text" class="form-control"
+                                value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>" required>
+                        </div>
+
+                        <!-- Datum -->
+                        <div class="mb-3">
+                            <label class="form-label">Datum:</label>
+                            <input name="Datum" type="date" class="form-control"
+                                value="<?= $_POST['Datum'] ?? $result->Datum ?? '' ?>" required>
+                        </div>
+
+                        <!-- Tijd -->
+                        <div class="mb-3">
+                            <label class="form-label">Tijd:</label>
+                            <input name="Tijd" type="text" class="form-control"
+                                value="<?= $result->Tijd ?? $_POST['Tijd'] ?? '' ?>" required>
+                        </div>
+
+                        <!-- Reserveringstatus -->
+                        <div class="mb-3">
+                            <label class="form-label">Reserveringstatus:</label>
+                            <select name="Reserveringstatus" class="form-control" required>
+                                <option value="">Kies een status</option>
+                                <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
+                                <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
+                                <option value="Gereserveerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Gereserveerd' ? 'selected' : '' ?>>Gereserveerd</option>
+                                <option value="Geannuleerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Geannuleerd' ? 'selected' : '' ?>>Geannuleerd</option>
+                            </select>
+                        </div>
+
+                        <!-- Hidden ID -->
+                        <input name="id" type="hidden" value="<?= $result->Id ?? $_POST['id'] ?? '' ?>">
+
+                        <!-- Verstuur knop -->
+                        <div class="d-grid">
+                            <button name="submit" class="btn btn-primary btn-lg">Verstuur</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- Terug knop -->
+        <div class="row justify-content-center mb-3">
             <div class="col-6">
-                <form action="update.php" method="POST">
-
-                    <!-- Voornaam -->
-                    <div class="mb-3">
-                        <label class="form-label">Voornaam:</label>
-                        <input name="Voornaam" type="text" class="form-control"
-                            value="<?= $result->Voornaam ?? $_POST['Voornaam'] ?? '' ?>" required>
-                    </div>
-
-                    <!-- Tussenvoegsel -->
-                    <div class="mb-3">
-                        <label class="form-label">Tussenvoegsel:</label>
-                        <input name="Tussenvoegsel" type="text" class="form-control"
-                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>">
-                    </div>
-
-                    <!-- Achternaam -->
-                    <div class="mb-3">
-                        <label class="form-label">Achternaam:</label>
-                        <input name="Achternaam" type="text" class="form-control"
-                            value="<?= $result->Achternaam ?? $_POST['Achternaam'] ?? '' ?>" required>
-                    </div>
-
-                    <!-- Nummer -->
-                    <div class="mb-3">
-                        <label class="form-label">Nummer:</label>
-                        <input name="Nummer" type="text" class="form-control"
-                            value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>" required>
-                    </div>
-
-                    <!-- Datum -->
-                    <div class="mb-3">
-                        <label class="form-label">Datum:</label>
-                        <input name="Datum" type="date" class="form-control"
-                            value="<?= $_POST['Datum'] ?? $result->Datum ?? '' ?>" required>
-                    </div>
-
-                    <!-- Tijd -->
-                    <div class="mb-3">
-                        <label class="form-label">Tijd:</label>
-                        <input name="Tijd" type="text" class="form-control"
-                            value="<?= $result->Tijd ?? $_POST['Tijd'] ?? '' ?>" required>
-                    </div>
-
-                    <!-- Reserveringstatus -->
-                    <div class="mb-3">
-                        <label class="form-label">Reserveringstatus:</label>
-                        <select name="Reserveringstatus" class="form-control" required>
-                            <option value="">Kies een status</option>
-                            <option value="Vrij" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Vrij' ? 'selected' : '' ?>>Vrij</option>
-                            <option value="Bezet" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Bezet' ? 'selected' : '' ?>>Bezet</option>
-                            <option value="Gereserveerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Gereserveerd' ? 'selected' : '' ?>>Gereserveerd</option>
-                            <option value="Geannuleerd" <?= ($_POST['Reserveringstatus'] ?? $result->Reserveringstatus ?? '') == 'Geannuleerd' ? 'selected' : '' ?>>Geannuleerd</option>
-                        </select>
-                    </div>
-
-                    <!-- Hidden ID -->
-                    <input name="id" type="hidden" value="<?= $result->Id ?? $_POST['id'] ?? '' ?>">
-
-                    <!-- Verstuur knop -->
-                    <div class="d-grid">
-                        <button name="submit" class="btn btn-primary btn-lg">Verstuur</button>
-                    </div>
-
-                </form>
+                <a href="index.php" class="btn btn-secondary">← Terug</a>
             </div>
         </div>
-        <?php endif; ?>
 
     </div>
 </body>
