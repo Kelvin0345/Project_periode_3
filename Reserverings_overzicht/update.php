@@ -59,6 +59,7 @@ if (isset($_POST['submit'])) {
               ,RS.Achternaam
               ,RS.Nummer
               ,RS.Tijd
+              ,RS.Reserveringstatus
               ,DATE_FORMAT (RS.Tijd, '%d-%m-%Y') 
         FROM Reservering AS RS
         WHERE RS.Id = :id";
@@ -105,7 +106,7 @@ if (isset($_POST['submit'])) {
         <!-- titel pagina -->
         <div class="row justify-content-center">
             <div class="col-6">
-                <h3 class="text-primary">Wijzig Reser:</h3>
+                <h3 class="text-primary">Wijzig Reservering:</h3>
             </div>
         </div>
 

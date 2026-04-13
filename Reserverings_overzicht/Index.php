@@ -128,6 +128,11 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $Reservering->Datum; ?></td>
                             <td><?= $Reservering->Tijd; ?></td>
                             <td><?= $Reservering->Reserveringstatus; ?></td>
+                            <td class="text-center">
+                                <a href="update.php?id=<?=  $Reservering->Id; ?>">
+                                    <i class="bi bi-pencil-square text-success"></i>
+                                </a>
+                            </td>
                             <td class='text-center'>
                                 <a href="delete.php?id=<?= $Reservering->Id; ?>">
                                     <i class="bi bi-x-square text-danger"></i>
