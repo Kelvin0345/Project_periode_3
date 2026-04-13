@@ -1,42 +1,42 @@
-```php
-<?php 
-include('config/config.php');
+<?php
+session_start();
 
-$dsn = "mysql:host=$dbHost;dbname=$dbName;charset=utf8";
+$id = $_GET['id'] ?? null;
 
-$pdo = new PDO($dsn, $dbUser, $dbPass);
+/* =========================
+   SCENARIO 1: SUCCES
+========================= */
+if(isset($_SESSION['users'][$id])){
+    unset($_SESSION['users'][$id]);
+    $_SESSION['users'] = array_values($_SESSION['users']);
 
-$sql = "DELETE FROM accountenoverzicht WHERE Id = :id";
-$statement = $pdo->prepare($sql);
-$statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-$statement->execute();
+    $message = "Account succesvol verwijderd";
+}
 
-header('Refresh: 3; url=index.php');
+/* =========================
+   SCENARIO 2: ERROR
+========================= */
+else {
+    $message = "Het account kan niet worden verwijderd";
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account verwijderen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Delete account</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="alert alert-success text-center" role="alert">
-                Het account is verwijderd. U wordt teruggestuurd naar de index-pagina...
-            </div>
-        </div>
-    </div>
-</div>
+<h1>Account verwijderen</h1>
+
+<p><?= $message ?></p>
+
+<br>
+<a href="index.php">← Terug naar overzicht</a>
 
 </body>
 </html>
-```
