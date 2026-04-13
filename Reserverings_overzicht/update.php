@@ -109,42 +109,42 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <label class="form-label">Voornaam:</label>
                         <input name="Voornaam" type="text" class="form-control"
-                            value="<?= $result->Voornaam ?? $_POST['Voornaam'] ?? '' ?>">
+                            value="<?= $result->Voornaam ?? $_POST['Voornaam'] ?? '' ?>" required>
                     </div>
 
                     <!-- Tussenvoegsel -->
                     <div class="mb-3">
                         <label class="form-label">Tussenvoegsel:</label>
                         <input name="Tussenvoegsel" type="text" class="form-control"
-                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>">
+                            value="<?= $result->Tussenvoegsel ?? $_POST['Tussenvoegsel'] ?? '' ?>" >
                     </div>
 
                     <!-- Achternaam -->
                     <div class="mb-3">
                         <label class="form-label">Achternaam:</label>
                         <input name="Achternaam" type="text" class="form-control"
-                            value="<?= $result->Achternaam ?? $_POST['Achternaam'] ?? '' ?>">
+                            value="<?= $result->Achternaam ?? $_POST['Achternaam'] ?? '' ?>" required>
                     </div>
 
                     <!-- Nummer -->
                     <div class="mb-3">
                         <label class="form-label">Nummer:</label>
                         <input name="Nummer" type="text" class="form-control"
-                            value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>">
+                            value="<?= $result->Nummer ?? $_POST['Nummer'] ?? '' ?>"required>
                     </div>
 
                     <!-- Datum -->
                     <div class="mb-3">
                         <label class="form-label">Datum:</label>
                         <input name="Datum" type="date" class="form-control"
-                            value="<?= $_POST['Datum'] ?? $result->Datum ?? '' ?>">
+                            value="<?= $_POST['Datum'] ?? $result->Datum ?? '' ?>" required>
                     </div>
 
                     <!-- Tijd -->
                     <div class="mb-3">
                         <label class="form-label">Tijd:</label>
                         <input name="Tijd" type="text" class="form-control"
-                            value="<?= $result->Tijd ?? $_POST['Tijd'] ?? '' ?>">
+                            value="<?= $result->Tijd ?? $_POST['Tijd'] ?? '' ?>" required>
                     </div>
 
                     <!-- Reserveringstatus -->
