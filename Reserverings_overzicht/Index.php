@@ -61,23 +61,39 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
     <!-- NAVBAR -->
 
-    <nav class="navbar">
-        <div class="nav-logo">FitFor<span>FUN</span></div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/Lessen.html">Lessen</a></li>
-            <li><a href="#vacatures">Vacaturen</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        </div>
-        <div class="nav-auth">
-            <a href="#" class="btn-registreer">Registreren</a>
-            <a href="../login.php" class="btn-login">Login</a>
+    <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">FitFor<span>FUN</span></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Lessen.html">Lessen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vacatures">Vacaturen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-primary me-2">Registreren</a>
+                    <a href="../login.php" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+
         </div>
     </nav>
-
-
-
 
 
     <!-- Container tabel -->
@@ -130,7 +146,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $Reservering->Tijd; ?></td>
                             <td><?= $Reservering->Reserveringstatus; ?></td>
                             <td class="text-center">
-                                <a href="update.php?id=<?=  $Reservering->Id; ?>">
+                                <a href="update.php?id=<?= $Reservering->Id; ?>">
                                     <i class="bi bi-pencil-square text-success"></i>
                                 </a>
                             </td>
