@@ -17,14 +17,15 @@ if (isset($_POST['submit'])) {
 
     // var_dump($_POST);
 
-    $sql = "UPDATE   Rollercoaster as HAVE
-        SET      RollerCoaster = :rollercoaster
-                 ,AmusementPark = :amusementPark
-                 ,Country = :country
-                 ,TopSpeed = :topSpeed
-                 ,Height = :height
-                 ,YearOfConstruction = :yofc
-        WHERE HAVE.Id = :id";
+    $sql = "UPDATE   Reservering` as RS
+        SET      Voonaam = :voornaam
+                 ,Tussenvoegsel = :tussenvoegsel
+                 ,Achternaam = :achternaam
+                 ,Nummer = :nummer
+                 ,Datum = :datum
+                 ,Tijd = :tijd
+                 ,Reserveringstatus = :Reserveringstatus
+        WHERE RS.Id = :id";
 
     $statement = $pdo->prepare($sql);
 
