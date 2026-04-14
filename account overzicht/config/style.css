@@ -111,19 +111,23 @@ button:hover {
     background: #2563eb;
 }
 
-/* ACTIE KNOPPEN (table) */
+/* =========================
+   🔥 ACTIE KNOPPEN (FIXED)
+========================= */
+
 .edit-btn, .delete-btn {
     display: inline-block;
     padding: 8px 14px;
     text-decoration: none;
     color: white;
     font-size: 13px;
-    border-radius: 0;
+    border-radius: 0; /* 🔥 vierkant */
     margin-right: 5px;
     text-align: center;
     width: 70px;
 }
 
+/* GROENE EDIT */
 .edit-btn {
     background-color: #22c55e;
 }
@@ -132,6 +136,7 @@ button:hover {
     background-color: #16a34a;
 }
 
+/* RODE DELETE */
 .delete-btn {
     background-color: #ef4444;
 }
@@ -140,10 +145,7 @@ button:hover {
     background-color: #dc2626;
 }
 
-/* =========================
-   🔥 EDIT / UPDATE PAGINA FIX
-========================= */
-
+/* Form */
 .edit-form {
     width: 100%;
     max-width: 450px;
@@ -154,46 +156,13 @@ button:hover {
     backdrop-filter: blur(10px);
 }
 
-/* inputs in edit */
-.edit-form input,
-.edit-form select {
+/* Inputs */
+input, select {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
     border: none;
     margin-bottom: 15px;
-    outline: none;
-}
-
-/* 🔥 UPDATE BUTTON (groter + mooi) */
-.edit-form .button {
-    width: 100%;
-    padding: 14px;
-    font-size: 15px;
-    border-radius: 10px;
-}
-
-/* 🔥 DELETE BUTTON (past bij stijl) */
-.delete-button {
-    width: 100%;
-    padding: 14px;
-    font-size: 15px;
-
-    background: #ef4444;
-    color: white;
-
-    border: none;
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-    margin-top: 10px;
-}
-
-.delete-button:hover {
-    background: #dc2626;
-    transform: scale(1.03);
 }
 
 /* Status */
@@ -207,15 +176,30 @@ button:hover {
     font-weight: bold;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablet */
 @media (max-width: 900px) {
-    h1 { font-size: 32px; }
-    .stats { min-width: 160px; }
-    table { min-width: 600px; }
+    h1 {
+        font-size: 32px;
+    }
+
+    .stats {
+        min-width: 160px;
+    }
+
+    table {
+        min-width: 600px;
+    }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
-    h1 { font-size: 26px; }
+    h1 {
+        font-size: 26px;
+    }
 
     .stats-container {
         flex-direction: column;

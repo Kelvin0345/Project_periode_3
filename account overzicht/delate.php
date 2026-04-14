@@ -1,42 +1,29 @@
-```php
-<?php 
-include('config/config.php');
+<?php
+$conn = new mysqli("localhost", "root", "", "fitness");
 
-$dsn = "mysql:host=$dbHost;dbname=$dbName;charset=utf8";
+session_start();
 
-$pdo = new PDO($dsn, $dbUser, $dbPass);
+if (!isset($_GET['id'])) {
+    header("Location: index.php?error=1");
+    exit;
+}
 
-$sql = "DELETE FROM accountenoverzicht WHERE Id = :id";
-$statement = $pdo->prepare($sql);
-$statement->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-$statement->execute();
+$id = intval($_GET['id']);
 
-header('Refresh: 3; url=index.php');
+// Check of les bestaat
+if (!isset($_SESSION['users'][$id])) {
+    header("Location: index.php?error=1");
+    exit;
+}
+
+// Verwijder de les
+unset($_SESSION['users'][$id]);
+
+// Herindexeren zodat de array netjes blijft
+$_SESSION['users'] = array_values($_SESSION['users']);
+
+header("Location: index.php?deleted=1");
+exit;
 ?>
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account verwijderen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          crossorigin="anonymous">
-</head>
-
-<body>
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="alert alert-success text-center" role="alert">
-                Het account is verwijderd. U wordt teruggestuurd naar de index-pagina...
-            </div>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-```
+?>
